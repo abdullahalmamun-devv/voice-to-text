@@ -36,7 +36,7 @@ jobs:
         run: |
           sudo unshare -n -- python3 scripts/smoke-native-bengali.py target/release/voicetotext "model-packs/বাংলা/bengali.vtt-model.json" "model-packs/বাংলা-downloads/test-wavs" native-verification/smoke
           sudo unshare -n -- python3 scripts/benchmark-worker.py target/release/voicetotext "model-packs/বাংলা/bengali.vtt-model.json" model-packs/fleurs-bn-30/corpus.csv native-verification/fleurs --cpu-profile "GitHub Ubuntu x64; native CPU/2 threads; no network namespace; sequential" --no-timestamps
-          python3 scripts/verify-native-bengali-results.py native-verification/fleurs
+          sudo unshare -n -- python3 scripts/verify-native-bengali-results.py native-verification/fleurs --emit-evidence
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
@@ -86,7 +86,7 @@ jobs:
             if ($LASTEXITCODE -ne 0) { throw "Native compatibility smoke failed" }
             python scripts/benchmark-worker.py target/release/voicetotext.exe "model-packs/বাংলা/bengali.vtt-model.json" model-packs/fleurs-bn-30/corpus.csv native-verification/fleurs --cpu-profile "GitHub Windows x64; native CPU/2 threads; explicit outbound rule; sequential" --no-timestamps
             if ($LASTEXITCODE -ne 0) { throw "Native benchmark failed" }
-            python scripts/verify-native-bengali-results.py native-verification/fleurs
+            python scripts/verify-native-bengali-results.py native-verification/fleurs --emit-evidence
             if ($LASTEXITCODE -ne 0) { throw "Native integration parity failed" }
           } finally {
             Remove-NetFirewallRule -DisplayName VoiceToText-native-CI -ErrorAction Stop

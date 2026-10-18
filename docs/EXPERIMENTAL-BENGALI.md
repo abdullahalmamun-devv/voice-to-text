@@ -32,8 +32,9 @@ accessibility QA এখনো বাকি।
 
 ## মাপা ফলের সীমা
 
-বাহ্যিক গবেষণা engine-এ একই ৩০টি development audio-র normalized WER 17.74%,
-scalar CER 5.38%, decoder error 0/30। এগুলো read Indian Bengali; বাংলাদেশি কথ্য,
+Windows native worker-এ ৩০টি development audio-র normalized WER 17.74%,
+scalar CER 5.38%, decoder error 0/30। সব ৩০টি লেখা গবেষণা engine-এর ফলের সঙ্গে
+হুবহু মিলে গেছে। এগুলো read Indian Bengali; বাংলাদেশি কথ্য,
 mixed English, noise, নাম–সংখ্যা বা independent holdout-এর প্রমাণ নয়। Clean WER
 লক্ষ্য 10%; এই ফল সেটি পূরণ করেনি। Native app-এর আলাদা ফল ও CI parity evidence
 package-এর verification ফোল্ডার এবং repo benchmarks-এ দেখুন।

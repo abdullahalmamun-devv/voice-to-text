@@ -10,6 +10,7 @@ ROOT=Path(__file__).resolve().parent.parent
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('results',type=Path)
+    parser.add_argument('--emit-evidence',action='store_true',help='Print public benchmark evidence for durable CI recovery')
     args=parser.parse_args()
     expected=list(csv.DictReader((ROOT/'benchmarks/fleurs-bn-smoke-30/runs/zipformer-30-serial/results.csv').open(encoding='utf-8-sig')))
     actual=list(csv.DictReader((args.results/'results.csv').open(encoding='utf-8-sig')))
@@ -27,6 +28,10 @@ def main():
              'count':30,'changed_transcripts':changed,'quality':report['slices']}
     (args.results/'integration-parity.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps(summary))
+    if args.emit_evidence:
+        names=['results.csv','report.json','run-config.json','integration-parity.json']
+        bundle={name:(args.results/name).read_text(encoding='utf-8-sig') for name in names}
+        print('NATIVE_EVIDENCE_JSON='+json.dumps(bundle,ensure_ascii=True))
     if changed:raise SystemExit('Native integration output differs; inspect recorded results before promotion')
 
 if __name__=='__main__':main()
