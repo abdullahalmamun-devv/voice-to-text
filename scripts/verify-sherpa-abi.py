@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Compile the upstream-header ABI probe with the host C compiler, no ASR load."""
 import os
+import hashlib
+import json
 from pathlib import Path
 import subprocess
 import tempfile
@@ -10,6 +12,9 @@ EXPECTED='272 136 16 8 144 176 192 232 248 64 128'
 
 
 def main():
+    metadata=json.loads((ROOT/'native/source-integrity.json').read_text())
+    if hashlib.sha256((ROOT/'native'/metadata['header']).read_bytes()).hexdigest()!=metadata['sha256']:
+        raise SystemExit('Pinned upstream C header checksum mismatch')
     with tempfile.TemporaryDirectory() as folder:
         output=Path(folder)/('abi.exe' if os.name=='nt' else 'abi')
         if os.name=='nt':

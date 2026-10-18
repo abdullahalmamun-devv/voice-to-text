@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0-alpha.3 — experimental native Bengali
+
+- Add a pinned native sherpa-onnx Bengali Zipformer profile in the cancellable app worker, with no Python runtime.
+- Verify exact model/runtime bytes and C ABI; reject extra runtime dependency files and arbitrary profile fields.
+- Require review for experimental results; reject unsupported language/vocabulary hints and provide no fabricated SRT.
+- Add explicit pack preparation, upstream notices, native compatibility/cancellation tests, full-corpus parity checks and Windows packaging.
+- Stable Bengali quality, complete V1/V2, real Windows device/UI QA and clean-machine installation remain unqualified.
+
 ## 0.2.0-alpha.2 — development checkpoint
 
 - Read WAV files in the cancellable inference process, retain a path for Retry, and validate duration/layout before decoding.

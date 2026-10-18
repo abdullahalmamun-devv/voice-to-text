@@ -143,6 +143,7 @@ def run():
               'normalization': 'NFC + Unicode punctuation to spaces + whitespace; digits/spelling not rewritten',
               'cer': 'Unicode scalar values including normalized spaces, not graphemes',
               'timeout_seconds': args.timeout, 'available_cpu_count': len(os.sched_getaffinity(0)) if hasattr(os, 'sched_getaffinity') else os.cpu_count()}
+    config['source_revision'] = os.environ.get('GITHUB_SHA')
     if native_profile:
         pins = Path(__file__).resolve().parent.parent/'native/bengali-zipformer-pins.json'
         config.update({'model_kind':'experimental native profile descriptor; weights/runtime pinned in app source',

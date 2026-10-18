@@ -77,6 +77,19 @@ fn checked_file(root: &Path, pin: &FilePin, hash: bool) -> Result<(), String> {
     }
     Ok(())
 }
+fn runtime_names(runtime_dir: &Path, runtime: &RuntimePins) -> Result<(), String> {
+    for entry in std::fs::read_dir(runtime_dir).map_err(|e| e.to_string())? {
+        let entry = entry.map_err(|e| e.to_string())?;
+        if !runtime
+            .files
+            .iter()
+            .any(|pin| entry.file_name() == std::ffi::OsStr::new(&pin.name))
+        {
+            return Err("Unexpected file in the pinned runtime folder".into());
+        }
+    }
+    Ok(())
+}
 fn check(path: &Path, hash: bool) -> Result<Pack, String> {
     if !is_pack(path)
         || std::fs::metadata(path)
@@ -112,6 +125,7 @@ fn check(path: &Path, hash: bool) -> Result<Pack, String> {
     {
         return Err("Runtime folder must not be a symlink".into());
     }
+    runtime_names(&runtime_dir, &runtime)?;
     for pin in &pins.model_files {
         checked_file(&root, pin, hash)?;
     }
@@ -146,6 +160,25 @@ mod tests {
         value.as_object_mut().unwrap().remove("library");
         value["experimental"] = false.into();
         assert!(descriptor(&serde_json::to_vec(&value).unwrap(), "windows-x64", &pins).is_err());
+    }
+    #[test]
+    fn extra_dependency_cannot_hijack_a_pinned_runtime() {
+        let root = std::env::temp_dir().join(format!("vtt-dependency-{}", std::process::id()));
+        std::fs::create_dir_all(&root).unwrap();
+        std::fs::write(root.join("runtime.dll"), b"known").unwrap();
+        let runtime = RuntimePins {
+            capi: "runtime.dll".into(),
+            onnx: "runtime.dll".into(),
+            files: vec![FilePin {
+                name: "runtime.dll".into(),
+                size_bytes: 5,
+                sha256: String::new(),
+            }],
+        };
+        assert!(runtime_names(&root, &runtime).is_ok());
+        std::fs::write(root.join("MSVCP140.dll"), b"untrusted").unwrap();
+        assert!(runtime_names(&root, &runtime).is_err());
+        std::fs::remove_dir_all(root).unwrap();
     }
     #[test]
     fn pinned_library_must_match_before_loading() {

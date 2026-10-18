@@ -1,4 +1,4 @@
-> Development checkpoint: source is published on GitHub. Alpha.2 is not stable. The older full offline package is alpha.1; CI app-only artifacts contain no model. Read docs/PROJECT-STATUS.md before use.
+> Current development: alpha.3 adds an optional experimental native Bengali profile. Read [EXPERIMENTAL-BENGALI.md](docs/EXPERIMENTAL-BENGALI.md) for that package. The general guide below also describes the older alpha.1 archive; no stable model is qualified.
 
 # VoiceToText চালানোর গাইড
 

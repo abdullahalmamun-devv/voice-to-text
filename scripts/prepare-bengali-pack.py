@@ -49,6 +49,7 @@ def main():
         'ONNX Runtime: Copyright Microsoft Corporation, MIT; see ONNX-RUNTIME-MIT.txt.\n'
         'No automatic punctuation, Latin English preservation or vocabulary hints are qualified.\n')
     shutil.copyfile(ROOT/'licenses/onnxruntime-MIT.txt',args.output/'ONNX-RUNTIME-MIT.txt')
+    shutil.copyfile(ROOT/'licenses/onnxruntime-ThirdPartyNotices.txt',args.output/'ONNX-RUNTIME-ThirdPartyNotices.txt')
     (args.output/'pack-provenance.json').write_text(json.dumps(pins,indent=2))
     print(json.dumps({'profile':str(args.output/'bengali.vtt-model.json'),'platform':args.platform,
                       'model_bytes':sum(p['size_bytes'] for p in pins['model_files']),

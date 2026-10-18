@@ -1,6 +1,6 @@
 # Third-party components
 
-Full corresponding vendored sources accompany the source package. Notices accompany both packages. Application code is MIT; third-party and model licenses are independent. Build-time crates are included in this inventory even where not linked into the desktop executable.
+Rust build dependency sources are vendored. Optional native CPU libraries use pinned upstream release URLs and hashes in native/bengali-zipformer-pins.json. Notices accompany packages. Application code is MIT; third-party and model licenses are independent. Build-time crates are included in this inventory even where not linked into the desktop executable.
 
 | Component | Version | Declared license |
 |---|---|---|
@@ -57,4 +57,9 @@ Full corresponding vendored sources accompany the source package. Notices accomp
 
 whisper.cpp 1.7.6 / ggml source is nested in whisper-rs-sys; its MIT license is copied in licenses/third-party. Multilingual Whisper Small Q5_1 weights use the OpenAI Whisper MIT license and the model manifest records source/hash. Rust standard library copyright/MIT/Apache notices and GCC/MinGW runtime/SDK notices (including the GCC Runtime Library Exception) are in licenses/. GNU runtime source is available from https://gcc.gnu.org/ and the MinGW project at https://www.mingw-w64.org/. No compiler runtime was modified.
 
-The application is not endorsed by these projects. Handy was an audited candidate only and is not a dependency. Public source publication has not occurred; this handoff includes the corresponding source archive.
+The application is not endorsed by these projects. Handy was an audited candidate only and is not a dependency. Source is public at https://github.com/abdullahalmamun-devv/voice-to-text.
+
+
+## Experimental native Bengali pack
+
+Bengali Vosk Zipformer/export: Apache-2.0, pinned Hugging Face revision and file hashes. sherpa-onnx 1.13.8: Apache-2.0, Copyright (c) 2023 Xiaomi Corporation. ONNX Runtime 1.28.2: MIT, Copyright Microsoft Corporation; its upstream ThirdPartyNotices.txt is retained in licenses/. Model/runtime source URLs, archive hashes and library hashes are compiled into profile pins. No upstream native runtime source was modified. The application directly uses vendored libloading 0.8.9 (ISC).
