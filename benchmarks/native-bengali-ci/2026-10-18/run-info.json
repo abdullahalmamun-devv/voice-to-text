@@ -1,0 +1,263 @@
+{
+  "workflow_run_id": 39151584968,
+  "workflow_url": "https://github.com/abdullahalmamun-devv/voice-to-text/actions/runs/39151584968",
+  "tested_pr_head": "4c9d0681dd0851ab03446bbf747c711f5e69f592",
+  "tested_merge_revision": "d155094b2f85fa82078fa1fa9bbf118ee86cdd2e",
+  "jobs": [
+    {
+      "id": 117746158530,
+      "name": "windows",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39151584968,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run rustup toolchain install 1.85.1 --profile minimal",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install cmake==3.31.6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/verify-vendor.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Test and build with the Windows SDK",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Prepare pinned test inputs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Native Bengali worker with explicit outbound block",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Package experimental Bengali app",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        }
+      ]
+    },
+    {
+      "id": 117746158702,
+      "name": "core",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39151584968,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run rustup toolchain install 1.85.1 --profile minimal --component rustfmt,clippy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python3 -m pip install cmake==3.31.6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python3 scripts/verify-vendor.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python3 scripts/verify-sherpa-abi.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run cargo fmt --check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run cargo test --offline --locked --lib",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run cargo clippy --offline --locked --all-targets --no-deps -- -D warnings",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run python3 -m unittest discover -s scripts -p 'test_*.py'",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run cargo build --offline --locked --release",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Download pinned test inputs before isolated inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Native Bengali worker without a network namespace connection",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 28
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12145631778,
+      "name": "Windows-experimental-Bengali-alpha3",
+      "size_in_bytes": 95253656,
+      "url": "https://api.github.com/repos/abdullahalmamun-devv/voice-to-text/actions/artifacts/12145631778",
+      "archive_download_url": "https://api.github.com/repos/abdullahalmamun-devv/voice-to-text/actions/artifacts/12145631778/zip",
+      "expired": false,
+      "created_at": "2026-10-18T17:56:45Z",
+      "expires_at": "2027-01-16T17:52:41Z",
+      "updated_at": "2026-10-18T17:56:45Z",
+      "digest": "sha256:03333741b388e394eeeb39ffbb165d069f0df0ba634529a8930f0310a4b62bf2",
+      "workflow_run": {
+        "id": 39151584968,
+        "repository_id": 1424215345,
+        "head_repository_id": 1424215345,
+        "head_branch": "native-bengali-zipformer",
+        "head_sha": "4c9d0681dd0851ab03446bbf747c711f5e69f592"
+      }
+    },
+    {
+      "id": 12145343024,
+      "name": "Linux-native-Bengali-verification",
+      "size_in_bytes": 30802,
+      "url": "https://api.github.com/repos/abdullahalmamun-devv/voice-to-text/actions/artifacts/12145343024",
+      "archive_download_url": "https://api.github.com/repos/abdullahalmamun-devv/voice-to-text/actions/artifacts/12145343024/zip",
+      "expired": false,
+      "created_at": "2026-10-18T17:55:20Z",
+      "expires_at": "2027-01-16T17:52:41Z",
+      "updated_at": "2026-10-18T17:55:20Z",
+      "digest": "sha256:1794ca14488c01a97922817f86dc1ab006f822c3e436910b2c718566d0c10357",
+      "workflow_run": {
+        "id": 39151584968,
+        "repository_id": 1424215345,
+        "head_repository_id": 1424215345,
+        "head_branch": "native-bengali-zipformer",
+        "head_sha": "4c9d0681dd0851ab03446bbf747c711f5e69f592"
+      }
+    },
+    {
+      "id": 12145094276,
+      "name": "Windows-native-Bengali-verification",
+      "size_in_bytes": 31058,
+      "url": "https://api.github.com/repos/abdullahalmamun-devv/voice-to-text/actions/artifacts/12145094276",
+      "archive_download_url": "https://api.github.com/repos/abdullahalmamun-devv/voice-to-text/actions/artifacts/12145094276/zip",
+      "expired": false,
+      "created_at": "2026-10-18T17:56:40Z",
+      "expires_at": "2027-01-16T17:52:41Z",
+      "updated_at": "2026-10-18T17:56:40Z",
+      "digest": "sha256:6dc069318c4bb13c7b504a6adc5e0725ea39b10601a3abaae8ed06dba2342120",
+      "workflow_run": {
+        "id": 39151584968,
+        "repository_id": 1424215345,
+        "head_repository_id": 1424215345,
+        "head_branch": "native-bengali-zipformer",
+        "head_sha": "4c9d0681dd0851ab03446bbf747c711f5e69f592"
+      }
+    }
+  ],
+  "source_revision_note": "Linux sudo did not preserve GITHUB_SHA for this run, so its unedited run-config records null. The job checkout and workflow identify the tested merge revision above. Follow-up workflow preserves GITHUB_SHA.",
+  "scope": "Native integration compatibility and development diagnostic; not Windows UI, microphone, clean-machine or stable ASR acceptance"
+}

@@ -978,7 +978,11 @@ impl App {
                     if let Err(e) = storage::append_history(&self.dir, &self.settings, &output) {
                         self.status(&format!("Result ready; history could not save: {e}"));
                     }
-                    if !self.settings.review && !edited && !self.transcript.review_required {
+                    if !self.settings.review
+                        && !edited
+                        && !self.transcript.review_required
+                        && !self.transcript.experimental_model
+                    {
                         self.try_insert();
                     } else {
                         ShowWindow(self.window, SW_SHOW);
@@ -1215,7 +1219,7 @@ impl App {
             }
             203 => {
                 if let Some(p) = file_dialog(self.window, true, "JSON\0*.json\0\0", "json") {
-                    let info = serde_json::json!({"version":env!("CARGO_PKG_VERSION"),"platform":"Windows x64","worker_busy":self.worker.busy.load(Ordering::SeqCst),"last_decode_ms":self.transcript.decode_ms,"network_clients":"none in product source","source_runtime":"whisper.cpp via whisper-rs 0.15.1","contains_audio":false,"contains_transcript":false,"real_windows_qa":"pending"});
+                    let info = serde_json::json!({"version":env!("CARGO_PKG_VERSION"),"platform":"Windows x64","worker_busy":self.worker.busy.load(Ordering::SeqCst),"last_decode_ms":self.transcript.decode_ms,"network_clients":"none in product source","source_runtime":"Whisper / experimental Bengali Zipformer CPU","contains_audio":false,"contains_transcript":false,"real_windows_qa":"pending"});
                     match storage::atomic_write(&p,info.to_string().as_bytes()){Ok(())=>self.status("Diagnostics exported; no audio, text, dictionary or user paths included."),Err(e)=>self.status(&e)}
                 }
             }
@@ -1227,7 +1231,7 @@ impl App {
                 if let Some(p) = file_dialog(
                     self.window,
                     false,
-                    "Whisper multilingual GGML\0*.bin\0\0",
+                    "Local speech model\0*.bin;*.vtt-model.json\0\0",
                     "bin",
                 ) {
                     match model::inspect(&p) {
@@ -1801,7 +1805,7 @@ pub fn run() -> Result<(), String> {
             app.status("Shortcut conflict. Choose another key in Preferences.");
         }
         if app.settings.model_path.is_empty() {
-            app.status("Model প্রয়োজন। Preferences থেকে local multilingual .bin নির্বাচন করুন।");
+            app.status("Model প্রয়োজন। Preferences থেকে local speech model নির্বাচন করুন।");
         } else {
             app.status("প্রস্তুত · Ctrl+Alt+Space default shortcut · Result review is on");
         }

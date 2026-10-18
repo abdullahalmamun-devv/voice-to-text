@@ -1,27 +1,73 @@
 # Project status — 18 October 2026
 
-The recovered, checksum-verified baseline is 0.2.0-alpha.1. Its historical evidence is in QA-REPORT.md; tests listed there were run on 11 October, not rerun merely by restoring this archive. The source is being published to https://github.com/abdullahalmamun-devv/voice-to-text.
+Source and checkpoints are public at https://github.com/abdullahalmamun-devv/voice-to-text.
+The current integration is **0.2.0-alpha.3**, an experimental Windows x64 application.
+Neither V1 nor V2 has passed all PRD stable-release acceptance gates.
 
-An earlier alpha.2 work session was not checkpointed before temporary-workspace cleanup. Those edits and unfinished benchmark outputs are unavailable. Planned or previously reported changes must be reconstructed and verified before being called delivered. This repository, rather than temporary storage, will hold subsequent checkpoints.
+## Delivered and verified
 
-## Remaining blockers
+- Alpha.2 reliability fixes were reconstructed and merged in PR #1: cancellable WAV reads,
+  anti-alias filtering, script-mismatch review, audio-bound timing and guarded native
+  insertion/Undo. Browser/custom controls still use manual Copy.
+- PR #2 preserves the frozen 30-clip Bengali investigation, model/corpus hashes,
+  scoring code, transcripts and failed observations. The original Small, Bengali
+  fine-tuned Small and confounded Turbo runs did not qualify as stable defaults.
+- PR #3 integrates the better Bengali Zipformer candidate directly through pinned
+  sherpa-onnx C ABI and ONNX Runtime libraries, inside the cancellable native worker.
+  Python is developer/CI tooling, not an application runtime. No cloud inference
+  or application-triggered model download is introduced.
+- CI run [39151584968](https://github.com/abdullahalmamun-devv/voice-to-text/actions/runs/39151584968)
+  passed both Linux and Windows jobs: 39 Rust tests each, Linux formatting/Clippy
+  and ten Python tests, independently compiled C ABI probes and release builds.
+- Both native workers decoded all 30 frozen FLEURS clips with exact transcript
+  parity to the research baseline, loaded models from Bengali-named folders and
+  passed real-WAV/silence/recovery/mode-rejection/cancellation smoke. Linux inference
+  ran without a network namespace connection; Windows used an outbound program
+  rule. A Windows executable + model + CPU runtime package was produced.
+- Reports, transcripts, hashes and exact scope are preserved in
+  [native integration evidence](../benchmarks/native-bengali-ci/2026-10-18/README.md).
+  The earlier Linux report-ownership failure was fixed and this run is green.
 
-- Recover priority audio, cancellable WAV, timestamp validation and insertion changes; rerun meaningful checks.
-- Complete Bengali/English interface, onboarding and evaluated voice-activity detection.
-- Compare intact Small and Turbo weights on a frozen, rights-cleared Bengali corpus. Earlier exploratory wrong-script outputs block accepting Small as an evaluated default. No numerical recognition score from that lost run is claimed here.
-- Execute actual Windows microphone, shortcut, focus, insertion/Undo, installer, resource, network, DPI and accessibility QA.
-- PRD benchmark gates remain open: 200 utterances/12 speakers for smoke, 1,000/50 for holdout, 200 non-speech clips, 500 nominal insertion trials, 50 guard cases, 100 cancels and an eight-hour run.
-- macOS and Linux desktop adapters remain unimplemented; the Linux CLI is not desktop support.
+## Measured Bengali result and limits
 
-## Planning
+On the same 30 development clips, the Windows native worker measured normalized
+WER **17.74%**, raw WER **30.31%** and normalized Unicode-scalar CER **5.38%**,
+with zero decoder errors or unexpected-script flags. Warm request median/P95 were
+852/1579 ms on that CI runner, not a minimum-device performance guarantee.
 
-Publication and automated build checks are the immediate milestone. Estimate the remaining schedule again after a working alpha.2 checkpoint and initial Windows/model results. The PRD's original Windows planning range is 6–10 active engineering weeks for the full effort, not an elapsed-time promise or a measured amount remaining. Stable completion depends on Windows devices and suitable speech data. Other desktop platforms require separate integration and acceptance work. No 100% ASR or final delivery date is promised.
+These clips are read Indian Bengali with 28 distinct prompt IDs; this is not an
+independent holdout, Bangladesh conversational benchmark or mixed-English test.
+The proposed clean normalized-WER target is 10%, so the model remains unqualified.
+See [the investigation](../benchmarks/fleurs-bn-smoke-30/DECISION.md).
 
+The experimental profile requires Bengali mode and explicit review. It does not
+support English-letter vocabulary, decoder dictionary hints, automatic punctuation
+or reliable segment timing/SRT. The multilingual model option remains available;
+the experimental profile is selected explicitly, never silently promoted.
 
-## Published recovery checkpoint
+## Remaining work
 
-The complete alpha.1 source is public. Priority alpha.2 audio/worker/timestamp/native delivery fixes were reconstructed, locally tested before a subsequent workspace reset, and reconstructed again from the retained recipe. The exact published revision must pass CI before its checks are called green. Earlier local evidence: 34 Rust core tests, five scoring tests, Linux release/Clippy and four synthetic-silence file-worker recovery checks. This is not Bengali ASR or real Windows application acceptance.
+- Collect and consent the planned Bangladesh development recordings, annotate them,
+  and run speaker-separated development and independent holdout evaluation.
+  The 204 planned takes in bn-target are a recording plan, not collected audio.
+- Improve punctuation, mixed English, names/numbers and conversational/noisy speech;
+  qualify model and decoding choices against the PRD rather than this smoke set.
+- Complete bilingual interface/onboarding, evaluated voice-activity detection,
+  browser integration and real Windows microphone, focus/insertion, accessibility,
+  resource/network and clean-machine installer checks.
+- Execute the full gates: 200 utterances/12 speakers, independent 1000/50 holdout,
+  200 non-speech clips, numeric/name entity sets, 500 insertion trials, 50 guard
+  cases, 100 cancellations and an eight-hour run. CI smoke is not those gates.
+- Linux CLI/worker tests do not implement a Linux desktop adapter; macOS desktop
+  support is also unimplemented.
 
-Current remaining blockers: full independent UI language/onboarding, browser UI Automation, evaluated VAD, Small/Turbo model selection, rights-cleared Bengali smoke/holdout corpus, real Windows microphone/permissions/insertion/network/resource/accessibility and extended-run QA. macOS/Linux desktop support remains unimplemented.
+## Availability and schedule
 
-Provisional planning estimate: several active development days for the next testable Windows alpha; roughly 3–6 active engineering weeks for a Windows V1/V2 stable candidate if suitable hardware, speakers/audio and corpus annotation are available. This is not a deadline. Failed recognition gates or unavailable devices/data extend it. Other desktop platforms need separate feasibility and scheduling. The original full-project PRD estimate was 6–10 active Windows engineering weeks.
+The Windows experimental artifact contains the model and native CPU libraries.
+It is unsigned and needs the Microsoft Visual C++ v14 runtime; it is not a verified
+clean-machine installer. Read [the Bengali guide](EXPERIMENTAL-BENGALI.md).
+
+A stable Windows V1/V2 candidate still requires several active engineering weeks,
+speech data and real Windows devices. The earlier provisional 3–6 week range is
+conditional, not an elapsed-time promise; model failures or missing evaluation
+resources can extend it. No 100% ASR accuracy or final delivery date is claimed.

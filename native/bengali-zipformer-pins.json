@@ -1,0 +1,75 @@
+{
+  "engine": "bengali-zipformer",
+  "runtime_version": "1.13.8",
+  "model_source": "https://huggingface.co/csukuangfj2/sherpa-onnx-streaming-zipformer-bn-vosk-2026-02-09/tree/a7c3c1547450a7c546c876be9ca8a6ab54464423",
+  "model_revision": "a7c3c1547450a7c546c876be9ca8a6ab54464423",
+  "model_files": [
+    {
+      "name": "encoder.onnx",
+      "sha256": "779f2412d6fa56f76be9fe71349cdf3edd10434ae9b1fc5e49834fb904320516",
+      "size_bytes": 90994145
+    },
+    {
+      "name": "decoder.onnx",
+      "sha256": "fc03e8ca154593b95748198a56de115d4e6048d97c41692f93dfefb05f3693b4",
+      "size_bytes": 2093080
+    },
+    {
+      "name": "joiner.onnx",
+      "sha256": "1df7319f4f9c36d7130cacaf629e1d52e904070e7a14bca9d4f209edeb162da6",
+      "size_bytes": 1026462
+    },
+    {
+      "name": "tokens.txt",
+      "sha256": "6f3a4d64d7da07e7dd7f3fd679e07607be3ec149d1b807726dbb8bbcc80a9fe1",
+      "size_bytes": 6252
+    }
+  ],
+  "runtimes": {
+    "linux-x64": {
+      "platform": "linux-x64",
+      "version": "1.13.8",
+      "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.8/sherpa-onnx-v1.13.8-linux-x64-shared-no-tts-lib.tar.bz2",
+      "archive_sha256": "bf2d998c8b07012cd5098f3b92673bc1333fd9b927767d7cb664be8190d8bc0b",
+      "files": [
+        {
+          "name": "libsherpa-onnx-c-api.so",
+          "size_bytes": 3626056,
+          "sha256": "c067b18cd746e49eb5016ee428196d21e1df14c14a3c54f128c1ac95f6aaed50"
+        },
+        {
+          "name": "libonnxruntime.so",
+          "size_bytes": 27026609,
+          "sha256": "4b3607aebd1784b26b6f9b20e4bd974c7ab8287043e4d095cb7d2cb40b5e566e"
+        }
+      ],
+      "capi": "libsherpa-onnx-c-api.so",
+      "onnx": "libonnxruntime.so"
+    },
+    "windows-x64": {
+      "platform": "windows-x64",
+      "version": "1.13.8",
+      "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.8/sherpa-onnx-v1.13.8-win-x64-shared-MD-Release-no-tts-lib.tar.bz2",
+      "archive_sha256": "b90992b888710715d613a4fedcd75d5b4db294ef64f3194e4f77ea0a8b387441",
+      "files": [
+        {
+          "name": "onnxruntime.dll",
+          "size_bytes": 17136128,
+          "sha256": "422d776ab0e3218260f7f628fcb84606aaa5c21116f720c8619a6da5e0b2e0f9"
+        },
+        {
+          "name": "onnxruntime_providers_shared.dll",
+          "size_bytes": 10752,
+          "sha256": "0190137dee4933261c065c5d030c3568a68c7aa43cad942b4726a07011738bc2"
+        },
+        {
+          "name": "sherpa-onnx-c-api.dll",
+          "size_bytes": 2882048,
+          "sha256": "5616605dc07ffbcf1cd6a001c2c76e826b9e1710e0fe17dfc3412de3a28df6a5"
+        }
+      ],
+      "capi": "sherpa-onnx-c-api.dll",
+      "onnx": "onnxruntime.dll"
+    }
+  }
+}

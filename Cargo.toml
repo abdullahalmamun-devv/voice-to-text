@@ -1,6 +1,6 @@
 [package]
 name = "voicetotext"
-version = "0.2.0-alpha.2"
+version = "0.2.0-alpha.3"
 edition = "2021"
 rust-version = "1.85"
 description = "Offline Bengali-first desktop dictation"
@@ -12,6 +12,7 @@ serde_json = "1"
 sha2 = "0.10"
 hound = "3.5"
 whisper-rs = { version = "=0.15.1", default-features = false }
+libloading = "=0.8.9"
 
 [target.'cfg(windows)'.dependencies]
 windows-sys = { version = "0.61", features = [

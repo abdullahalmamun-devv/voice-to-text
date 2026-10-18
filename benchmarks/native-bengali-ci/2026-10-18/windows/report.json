@@ -1,0 +1,39 @@
+{
+  "count": 30,
+  "errors": 0,
+  "slices": {
+    "read_bn_in_smoke": {
+      "n": 30,
+      "errors": 0,
+      "raw_wer": 0.30307941653160453,
+      "normalized_wer": 0.1774193548387097,
+      "normalized_scalar_cer": 0.05375808860129418,
+      "unexpected_script": 0,
+      "silence_generated_text": 0,
+      "warm_request_p50_ms": 852,
+      "warm_request_p95_ms": 1579,
+      "median_decode_rtf": 0.0670538603791031
+    }
+  },
+  "critical_entities": null,
+  "correction_burden": null,
+  "actual_insertions": null,
+  "configuration": {
+    "binary_sha256": "abd41469c3cd450194f425ef1845faa22752fc131111d0a2aed50db192d56307",
+    "model_sha256": "7418527257d97d1cf0824c71857d2b8f6e6b751f9d2b231d2c248e0873944b99",
+    "corpus_sha256": "3c8b0b412fd9251fb09e8e7671b6c7ef382c3b379a971781e82cdff0a0578a9c",
+    "cpu_profile": "GitHub Windows x64; native CPU/2 threads; explicit outbound rule; sequential",
+    "model_manifest_sha256": null,
+    "no_timestamps": true,
+    "runner_sha256": "f9ecd4b9e386e7f6259a28e231496bec0c541ede3d8d80d783d3ab2fb27f4946",
+    "mode": "one persistent app worker, first request cold, later requests warm unless restarted",
+    "decoder": "app native sherpa-onnx 1.13.8 CPU/2 threads, modified_beam_search/4 paths, no LM/hotwords, endpoint OFF, fixed .5s silent tail",
+    "normalization": "NFC + Unicode punctuation to spaces + whitespace; digits/spelling not rewritten",
+    "cer": "Unicode scalar values including normalized spaces, not graphemes",
+    "timeout_seconds": 180,
+    "available_cpu_count": 4,
+    "source_revision": "d155094b2f85fa82078fa1fa9bbf118ee86cdd2e",
+    "model_kind": "experimental native profile descriptor; weights/runtime pinned in app source",
+    "compiled_pack_pins_sha256": "efc83cf20f21500760d280a86f4d6760d4c0132342eb28ef8f9e2fd6bde34181"
+  }
+}

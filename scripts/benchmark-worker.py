@@ -125,6 +125,9 @@ def run():
     parser.add_argument('--cpu-profile', required=True)
     parser.add_argument('--no-timestamps', action='store_true')
     args = parser.parse_args()
+    native_profile = args.model.name.endswith('.vtt-model.json')
+    if native_profile and not args.no_timestamps:
+        raise SystemExit('Native Bengali profile has no verified segment times; use --no-timestamps')
     args.output.mkdir(parents=True, exist_ok=True)
     with args.corpus.open(encoding='utf-8-sig', newline='') as stream:
         items = list(csv.DictReader(stream))
@@ -140,6 +143,12 @@ def run():
               'normalization': 'NFC + Unicode punctuation to spaces + whitespace; digits/spelling not rewritten',
               'cer': 'Unicode scalar values including normalized spaces, not graphemes',
               'timeout_seconds': args.timeout, 'available_cpu_count': len(os.sched_getaffinity(0)) if hasattr(os, 'sched_getaffinity') else os.cpu_count()}
+    config['source_revision'] = os.environ.get('GITHUB_SHA')
+    if native_profile:
+        pins = Path(__file__).resolve().parent.parent/'native/bengali-zipformer-pins.json'
+        config.update({'model_kind':'experimental native profile descriptor; weights/runtime pinned in app source',
+                       'compiled_pack_pins_sha256':digest(pins),
+                       'decoder':'app native sherpa-onnx 1.13.8 CPU/2 threads, modified_beam_search/4 paths, no LM/hotwords, endpoint OFF, fixed .5s silent tail'})
     if (args.output/'rows.jsonl').exists():
         raise SystemExit('Output already contains rows; use a new directory for another run')
     cfg = args.output / 'run-config.json'

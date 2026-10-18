@@ -47,7 +47,9 @@ def main():
         for name in ("docs", "licenses"):
             shutil.copytree(ROOT / name, folder / name)
     shutil.copy2(exe, win / "VoiceToText.exe")
-    shutil.copytree(ROOT / "models", win / "models")
+    (win / "models").mkdir()
+    for name in ("ggml-small-q5_1.bin", "ggml-small-q5_1.manifest.json"):
+        shutil.copy2(ROOT / "models" / name, win / "models" / name)
     (win / "scripts").mkdir()
     for name in ("Install.ps1", "Verify-Package.ps1"):
         shutil.copy2(ROOT / "scripts" / name, win / "scripts" / name)
@@ -56,7 +58,7 @@ def main():
     files = [{"path": str(f.relative_to(win)).replace("\\", "/"), "size_bytes": f.stat().st_size,
               "sha256": digest(f)} for f in sorted(win.rglob("*")) if f.is_file()]
     (win / "package-manifest.json").write_text(json.dumps({"version": VERSION, "files": files}, indent=2))
-    for name in ("src", "vendor", ".cargo", ".github", "assets", "scripts"):
+    for name in ("src", "vendor", ".cargo", ".github", "assets", "scripts", "native", "benchmarks", "examples"):
         shutil.copytree(ROOT / name, source / name, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     for name in ("Cargo.toml", "Cargo.lock", "rust-toolchain.toml", "build.rs"):
         shutil.copy2(ROOT / name, source / name)
