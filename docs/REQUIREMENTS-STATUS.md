@@ -1,28 +1,35 @@
-> Historical alpha.1 matrix. Alpha.2 changes are in CHANGELOG.md and PROJECT-STATUS.md; stable PRD gates remain open.
+# PRD implementation and release status — alpha.3
 
-# PRD implementation and release status
+Updated 18 October 2026. "Present" describes source or the specific automated
+evidence below; it does not sign off the PRD. V1 and optional V2 features share one
+Windows application. History, drafts, commands and startup remain off by default.
 
-Status recorded 2026-10-11 for 0.2.0-alpha.1. “Implemented” means present in source and, where indicated, core-tested; it does not mean Windows runtime acceptance. The supplied PRD remains authoritative. V1 and V2 feature groups share one build; V2 opt-ins default off.
-
-| PRD area | Present in this alpha | Remaining before a stable claim |
+| PRD area | Present / verified | Remaining for stable release |
 |---|---|---|
-| Offline/free/source | Native UI, local CPU worker, no product HTTP/server/account/updater, corresponding vendored source and notices | Real Windows process-tree network capture; public source/tag publication and distribution/signing decision |
-| Offline package | Windows GUI PE, local model+manifest, system DLL imports only, portable/per-user installer recipes | Fresh disconnected Windows installation, install/update/rollback and unsigned-binary UX tests |
-| Mic/shortcut/session | Selection, hold/toggle, 120s cap, meter, cancel, stale-result IDs, lock/suspend handlers | Device/permission-loss/sleep/lock QA; callback fault paths and 500 actual desktop cycles |
-| ASR/model selection | Multilingual Small Q5_1 candidate; CPU decoder with bn/en/auto and vocabulary context | Gate 0 Small vs Large-v3-turbo comparison; chosen default acceptance; regional Bangla/mixed/quiet/noisy corpus evaluation |
-| Text processing | Exact dictionary, conservative supported integer amounts/digits, protected terms, explicit formatting; core regression tests | PRD full normalization/critical-entity corpus and correction-effort evaluation; unsupported number/date patterns remain literal |
-| Result recovery | Review/edit/copy/retry/discard, memory-only audio, held results | Real interrupted-flow and UI task testing |
-| Native insertion | Focus/process/control/caret/content checks, selection/password/read-only blocks; Unicode delivery and verified owned Undo | 500 nominal insertion trials and 50 guard scenarios; race/UIPI/password coverage, native control variants |
-| Browser/general editor insertion | Safe Copy/manual-paste fallback | **Implementation gap:** UI Automation/browser/custom-editor adapters; browser direct insertion is not implemented |
-| Clipboard | Only explicit Copy writes clipboard; automatic insertion avoids clipboard | Unicode/formats/contention and OS clipboard-history QA; no temporary clipboard restore mechanism is used |
-| Tray/UX/theme/DPI | Four native pages, visible recording surface, Nirmala UI font, DPI scaling, themes and first-use instructions | **Implementation gaps:** complete onboarding wizard and independent fully translated UI-language selector; visual/accessibility/keyboard/contrast/screen-reader tests |
-| Settings/recovery | Schema validation, atomic JSON, previous-file backup, manual imports/exports, opt-in startup | Windows recovery/upgrade persistence and startup path/multi-account testing |
-| V2 drafts | In-app preview every 5s when worker free; never commits drafts to an external field | Stable phrase policy and measured preview quality/latency; microphone and cancellation interplay QA |
-| V2 correction/snippets/editing | Explicit confirmed exact phrase correction; snippets; two app-owned delete commands | Broader bounded command set if required; real utterance recognition and correction UX tests |
-| V2 history | Opt-in transcript-only local JSON, 7/30/manual retention, capped 500 entries, Copy/export/Delete all | At-rest protection decision and OS permission QA; no encryption/secure-erasure guarantee |
-| V2 WAV/export | PCM/float WAV ≤10min/250MB, TXT/Markdown/raw timed SRT | File reading currently synchronous; linear resampling lacks a high quality anti-alias filter; wider formats excluded; timing validation with real corpus |
-| Silence/VAD | Conservative RMS gate and decoder no-speech segment rejection | **Implementation gap:** trained VAD/end-point policy and real noise/quiet speech/silence hallucination evaluation |
-| Platform expansion | Windows desktop; Linux CLI/worker only | macOS/Linux desktop adapters/packages/permissions/display-server matrices not implemented (PRD V1.1) |
-| Benchmark/QA handoff | Offline runner, 29 passing core tests, worker smoke report, manual test register | Rights-cleared Bengali corpus; 200 utterance/12 speaker prototype set and 1000 utterance/50 speaker holdout; all required stable metrics |
+| Offline source and package | Native Win32/Rust worker; vendored source; no product network client, server, account or updater. Experimental Bengali package contains pinned weights and native CPU libraries | Disconnected clean-machine installation, signing/distribution decision and actual Windows process-tree traffic capture |
+| Bengali recognition | Pinned native Zipformer candidate; 30 development clips exactly match research outputs; normalized WER 17.74%, scalar CER 5.38%, zero decoder errors | Clean WER target 10% unmet; Bangladesh conversational, mixed/noisy speech, numeric/name sets and independent holdout not qualified |
+| Language/model selection | Multilingual Whisper bn/en/auto retained. Experimental native profile is explicitly selected, Bengali-only and always reviewed | No stable default qualified; native English-letter vocabulary, automatic punctuation and decoder hints unsupported |
+| Audio/session | Anti-alias resampling, cancellable WAV reads, microphone choice, hold/toggle shortcut, cancel/stale-result guards, 120s mic cap | Real microphone/device/permission/sleep/lock tests, measured endpoint/VAD policy and desktop cycles |
+| Native runtime | Hash/version-pinned C API, independently checked ABI, exact dependency allowlist and restricted Windows library loading | Broader device/runtime coverage; CI runner success is not fresh-machine acceptance |
+| Text processing | Exact aliases, preferred terms for Whisper, conservative integer formatting, explicit formatting/snippets and confirmed corrections | Full entity/normalization corpus and correction-effort evaluation. Native profile rejects unsupported vocabulary prompts explicitly |
+| Result recovery | Review/edit/copy/retry/discard; RAM-only captured audio. Experimental results cannot automatically insert | Interrupted UI flows and hardware/resource checks |
+| Native insertion/Undo | Focus/process/control/caret/content guards; supported Unicode Edit/RichEdit delivery and owned Undo | 500 nominal insertion trials, 50 guard cases, race/UIPI/password/control-variant validation |
+| Browser/custom editors | Manual Copy and paste fallback | UI Automation/browser/custom-editor adapters remain unimplemented |
+| Clipboard | Explicit Copy only; automatic insertion avoids clipboard | Format/contention and OS clipboard-history QA |
+| UI/onboarding | Native pages, recording indicator, fonts, theme/DPI and setup guides | Complete independent Bengali/English UI selector, onboarding wizard, screen-reader/keyboard/contrast tests |
+| Settings/history | Atomic settings + backup; manual import/export; transcript-only opt-in capped history and retention | Windows recovery/startup/upgrade checks and at-rest protection decision; no encryption/secure-erasure guarantee |
+| V2 drafts/commands | Experimental in-app draft, snippets and bounded app-result deletion; no external draft insertion | Recognition and latency/preview-policy qualification |
+| WAV/export | PCM/float WAV within limits, cancellable reads, TXT/Markdown and audio-bound raw timing checks | Native Bengali has no verified segment timing and refuses SRT; broader formats excluded |
+| Silence/VAD | Conservative energy gate, no-speech handling and synthetic silence/recovery smoke | Trained/evaluated VAD and 200 real non-speech/noise/quiet clips |
+| Automated checks | 39 Rust tests on Linux and Windows; Linux formatting/Clippy and 10 Python tests; MSVC/native ABI and release builds | Does not cover Windows UI, mic, actual target insertion or the full PRD performance/resource matrix |
+| Other desktops | Linux CLI/worker | Linux and macOS desktop adapters, packages and permissions/display-server QA remain unimplemented |
 
-Unverified targets include the proposed WER/CER, critical numeric/name accuracy, ≥99% nominal insertion success, cancellation/latency/memory limits and zero destructive wrong-target insertion rate. There is no evidence to mark PRD §31 as passed. A release owner must execute the remaining gates and record their results; this alpha is a concrete implementation and developer handoff, not that sign-off.
+See [PROJECT-STATUS.md](PROJECT-STATUS.md), [EXPERIMENTAL-BENGALI.md](EXPERIMENTAL-BENGALI.md)
+and the frozen [investigation](../benchmarks/fleurs-bn-smoke-30/DECISION.md) for exact
+evidence and limitations. The planned bn-target recording takes contain no collected
+speaker recordings/consents.
+
+PRD gates remain open: 200 utterances/12 speakers, independent 1000/50 holdout,
+200 non-speech clips, numeric/name evaluation sets, 500 insertion trials, 50 guard
+cases, 100 cancellations and an eight-hour run. Neither 100% ASR accuracy nor
+universal textbox compatibility nor completed stable V1/V2 is claimed.

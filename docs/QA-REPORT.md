@@ -1,3 +1,5 @@
+> Historical alpha.1 report. Current alpha.3 evidence and remaining gates are in [PROJECT-STATUS.md](PROJECT-STATUS.md) and [REQUIREMENTS-STATUS.md](REQUIREMENTS-STATUS.md); original observations below are retained as dated evidence.
+
 # QA report — 0.2.0-alpha.1
 
 Recorded 2026-10-11. This is an alpha evidence report. Windows GUI/microphone and Bengali accuracy acceptance are pending.

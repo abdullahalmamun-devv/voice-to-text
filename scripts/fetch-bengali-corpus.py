@@ -17,7 +17,12 @@ def main():
     args=parser.parse_args()
     if args.output.exists():raise SystemExit('Select a new output directory')
     source=ROOT/'benchmarks/fleurs-bn-smoke-30'
-    rows=list(csv.DictReader((source/'corpus.csv').open(encoding='utf-8-sig')))
+    # Git checkouts can change CSV CRLF/LF bytes. Pin the canonical LF form;
+    # references, IDs and per-WAV hashes must remain exactly the frozen corpus.
+    corpus_bytes=(source/'corpus.csv').read_bytes().replace(b'\r\n',b'\n')
+    if hashlib.sha256(corpus_bytes).hexdigest()!='3c8b0b412fd9251fb09e8e7671b6c7ef382c3b379a971781e82cdff0a0578a9c':
+        raise SystemExit('Frozen corpus manifest checksum mismatch')
+    rows=list(csv.DictReader(corpus_bytes.decode('utf-8-sig').splitlines()))
     wanted={Path(row['audio']).name:row for row in rows}
     if len(wanted)!=30:raise SystemExit('Unexpected frozen corpus')
     for row in rows:
@@ -45,7 +50,7 @@ def main():
                 target.write_bytes(data);del wanted[name]
                 if not wanted:break
     if wanted:raise SystemExit('Frozen corpus members missing')
-    shutil.copyfile(source/'corpus.csv',args.output/'corpus.csv')
+    (args.output/'corpus.csv').write_bytes(corpus_bytes)
     shutil.copyfile(source/'provenance.json',args.output/'provenance.json')
     print('Restored all 30 individually verified public WAVs; full archive not verified')
 

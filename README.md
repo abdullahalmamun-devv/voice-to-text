@@ -8,7 +8,7 @@ This build combines the PRD's V1 core with optional V2 features in one native Wi
 
 Source is public at https://github.com/abdullahalmamun-devv/voice-to-text. See CHANGELOG.md, docs/PROJECT-STATUS.md and the exact commit's workflow status. Alpha.2 restores cancellable WAV reads, anti-alias filtering, script-mismatch review, audio-bound SRT timing and targeted native insertion/Undo. Browser/custom controls still require Copy.
 
-Alpha.3 adds an explicitly experimental native Bengali Zipformer profile with pinned model/runtime bytes and required review. Python is not a shipped runtime. See [Bengali setup](docs/EXPERIMENTAL-BENGALI.md) and [measured investigation](benchmarks/fleurs-bn-smoke-30/DECISION.md).
+Alpha.3 adds an explicitly experimental native Bengali Zipformer profile with pinned model/runtime bytes and required review. Python is not a shipped runtime. See [Bengali setup](docs/EXPERIMENTAL-BENGALI.md) and [measured investigation](benchmarks/fleurs-bn-smoke-30/DECISION.md). Native Windows/Linux evidence is in [the integration report](benchmarks/native-bengali-ci/2026-10-18/README.md).
 
 No Bengali model has qualified for stable release. The Windows native 30-clip normalized WER is 17.74%, above the proposed 10% clean target. Mixed English, punctuation, critical entities and Bangladesh conversational quality remain open. Small from alpha.1 failed this diagnostic and is not recommended as a production default.
 

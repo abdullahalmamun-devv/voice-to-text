@@ -1,0 +1,19 @@
+{
+  "scope": "Native/research transcript parity, NOT stable release acceptance",
+  "count": 30,
+  "changed_transcripts": [],
+  "quality": {
+    "read_bn_in_smoke": {
+      "n": 30,
+      "errors": 0,
+      "raw_wer": 0.30307941653160453,
+      "normalized_wer": 0.1774193548387097,
+      "normalized_scalar_cer": 0.05375808860129418,
+      "unexpected_script": 0,
+      "silence_generated_text": 0,
+      "warm_request_p50_ms": 852,
+      "warm_request_p95_ms": 1579,
+      "median_decode_rtf": 0.0670538603791031
+    }
+  }
+}

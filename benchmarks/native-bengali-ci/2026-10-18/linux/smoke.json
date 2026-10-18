@@ -1,0 +1,13 @@
+{
+  "scope": "Native compatibility smoke; not UI/hardware or ASR acceptance",
+  "binary_sha256": "4f50af56de0a9a0a74da326015f228a558b80f6718c21e5a02fc9f429ec5df96",
+  "profile_sha256": "feb28829d50a3a6832fe84b34eb7efeebcf1eb02793f49258a25d37578ee78d0",
+  "checks": [
+    "two real Bengali WAVs decode with experimental/no-SRT metadata",
+    "unsupported English and vocabulary hints return explicit errors",
+    "silence produces no text and worker recovers after rejected requests",
+    "busy native worker terminates without a late result"
+  ],
+  "cancel_wall_ms": 15,
+  "passed": true
+}

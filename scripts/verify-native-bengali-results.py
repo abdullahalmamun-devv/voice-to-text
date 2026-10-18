@@ -18,6 +18,7 @@ def main():
     changed=[]
     for index,(reference,row) in enumerate(zip(expected,actual),1):
         assert row['id']==reference['id'] and not row['error']
+        assert row['reference']==reference['reference'] and row['slice']==reference['slice']
         transcript=json.loads((args.results/f'result-{index:04}.json').read_text(encoding='utf-8'))['transcript']
         assert transcript['experimental_model'] and transcript['no_timestamps']
         assert not transcript['timing_reliable'] and transcript['segments']==[]

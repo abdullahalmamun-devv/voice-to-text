@@ -37,7 +37,8 @@ scalar CER 5.38%, decoder error 0/30। সব ৩০টি লেখা গব�
 হুবহু মিলে গেছে। এগুলো read Indian Bengali; বাংলাদেশি কথ্য,
 mixed English, noise, নাম–সংখ্যা বা independent holdout-এর প্রমাণ নয়। Clean WER
 লক্ষ্য 10%; এই ফল সেটি পূরণ করেনি। Native app-এর আলাদা ফল ও CI parity evidence
-package-এর verification ফোল্ডার এবং repo benchmarks-এ দেখুন।
+package-এর verification ফোল্ডার এবং
+[GitHub integration report](https://github.com/abdullahalmamun-devv/voice-to-text/blob/main/benchmarks/native-bengali-ci/2026-10-18/README.md)-এ দেখুন।
 
 ## Developer setup
 

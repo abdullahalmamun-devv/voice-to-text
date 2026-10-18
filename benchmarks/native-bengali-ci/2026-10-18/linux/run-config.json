@@ -1,0 +1,18 @@
+{
+  "binary_sha256": "4f50af56de0a9a0a74da326015f228a558b80f6718c21e5a02fc9f429ec5df96",
+  "model_sha256": "feb28829d50a3a6832fe84b34eb7efeebcf1eb02793f49258a25d37578ee78d0",
+  "corpus_sha256": "3c8b0b412fd9251fb09e8e7671b6c7ef382c3b379a971781e82cdff0a0578a9c",
+  "cpu_profile": "GitHub Ubuntu x64; native CPU/2 threads; no network namespace; sequential",
+  "model_manifest_sha256": null,
+  "no_timestamps": true,
+  "runner_sha256": "f9ecd4b9e386e7f6259a28e231496bec0c541ede3d8d80d783d3ab2fb27f4946",
+  "mode": "one persistent app worker, first request cold, later requests warm unless restarted",
+  "decoder": "app native sherpa-onnx 1.13.8 CPU/2 threads, modified_beam_search/4 paths, no LM/hotwords, endpoint OFF, fixed .5s silent tail",
+  "normalization": "NFC + Unicode punctuation to spaces + whitespace; digits/spelling not rewritten",
+  "cer": "Unicode scalar values including normalized spaces, not graphemes",
+  "timeout_seconds": 180,
+  "available_cpu_count": 4,
+  "source_revision": null,
+  "model_kind": "experimental native profile descriptor; weights/runtime pinned in app source",
+  "compiled_pack_pins_sha256": "efc83cf20f21500760d280a86f4d6760d4c0132342eb28ef8f9e2fd6bde34181"
+}

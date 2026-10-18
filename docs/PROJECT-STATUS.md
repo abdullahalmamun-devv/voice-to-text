@@ -16,24 +16,24 @@ Neither V1 nor V2 has passed all PRD stable-release acceptance gates.
   sherpa-onnx C ABI and ONNX Runtime libraries, inside the cancellable native worker.
   Python is developer/CI tooling, not an application runtime. No cloud inference
   or application-triggered model download is introduced.
-- CI run [39150902981](https://github.com/abdullahalmamun-devv/voice-to-text/actions/runs/39150902981)
-  passed 39 Rust tests on Linux and Windows, Linux formatting/Clippy and ten Python
-  tests, native ABI checks on both systems, and release builds.
-- That run's Windows job passed native inference in a Bengali-named model folder,
-  two compatibility WAVs, silence/recovery, explicit English/hint rejection and
-  cancellation without a late result. All 30 FLEURS transcripts exactly matched
-  the research candidate. An executable + model + runtime package was produced.
-  The Linux native smoke and 30 decodes also succeeded, but its final report
-  write failed because the isolated commands created root-owned output. The
-  follow-up workflow runs the verifier in the same isolated context; its result
-  must be checked before calling the entire workflow green.
+- CI run [39151584968](https://github.com/abdullahalmamun-devv/voice-to-text/actions/runs/39151584968)
+  passed both Linux and Windows jobs: 39 Rust tests each, Linux formatting/Clippy
+  and ten Python tests, independently compiled C ABI probes and release builds.
+- Both native workers decoded all 30 frozen FLEURS clips with exact transcript
+  parity to the research baseline, loaded models from Bengali-named folders and
+  passed real-WAV/silence/recovery/mode-rejection/cancellation smoke. Linux inference
+  ran without a network namespace connection; Windows used an outbound program
+  rule. A Windows executable + model + CPU runtime package was produced.
+- Reports, transcripts, hashes and exact scope are preserved in
+  [native integration evidence](../benchmarks/native-bengali-ci/2026-10-18/README.md).
+  The earlier Linux report-ownership failure was fixed and this run is green.
 
 ## Measured Bengali result and limits
 
 On the same 30 development clips, the Windows native worker measured normalized
 WER **17.74%**, raw WER **30.31%** and normalized Unicode-scalar CER **5.38%**,
 with zero decoder errors or unexpected-script flags. Warm request median/P95 were
-647/1217 ms on that CI runner, not a minimum-device performance guarantee.
+852/1579 ms on that CI runner, not a minimum-device performance guarantee.
 
 These clips are read Indian Bengali with 28 distinct prompt IDs; this is not an
 independent holdout, Bangladesh conversational benchmark or mixed-English test.
