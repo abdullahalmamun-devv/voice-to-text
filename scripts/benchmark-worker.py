@@ -5,6 +5,7 @@ Uses the app decoder, one model context, and manifest WAV paths. Cold first requ
 and warm later requests are separate. This is not microphone or insertion latency.
 """
 import argparse
+from contextlib import contextmanager
 import csv
 import hashlib
 import json
@@ -13,6 +14,7 @@ from pathlib import Path
 import queue
 import statistics
 import subprocess
+import tempfile
 import threading
 import time
 from benchmark import edits, norm, percentile95
@@ -21,6 +23,28 @@ from benchmark import edits, norm, percentile95
 def digest(path):
     with path.open('rb') as stream:
         return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+@contextmanager
+def benchmark_lock(path=None):
+    """Avoid oversubscribed GGML workers invalidating timeout/speed comparisons."""
+    path = path or Path(tempfile.gettempdir()) / 'voicetotext-asr-benchmark.lock'
+    with path.open('a+b') as stream:
+        stream.seek(0)
+        if not stream.read(1):
+            stream.write(b'0')
+            stream.flush()
+        stream.seek(0)
+        try:
+            if os.name == 'nt':
+                import msvcrt
+                msvcrt.locking(stream.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(stream.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError:
+            raise SystemExit('Another local ASR benchmark is running; run models sequentially') from None
+        yield
 
 
 class Worker:
@@ -84,7 +108,7 @@ def summarize(rows):
     return result
 
 
-def main():
+def run():
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('binary', 'model', 'corpus', 'output'):
         parser.add_argument(name, type=Path)
@@ -135,6 +159,8 @@ def main():
                         transcript = response.get('transcript') or {}
                         if not isinstance(transcript.get('text'), str):
                             raise ValueError('Invalid transcript')
+                        if bool(transcript.get('no_timestamps')) != args.no_timestamps:
+                            raise ValueError('Worker decoder profile mismatch')
                 except (OSError, ValueError, RuntimeError, TimeoutError) as failure:
                     error = type(failure).__name__
                     worker.close()
@@ -169,6 +195,11 @@ def main():
             writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
             writer.writeheader()
             writer.writerows(rows)
+
+
+def main():
+    with benchmark_lock():
+        run()
 
 
 if __name__ == '__main__':

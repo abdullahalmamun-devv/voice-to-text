@@ -20,6 +20,16 @@ converter=load('safetensors_converter','convert-bn-safetensors.py')
 
 
 class WorkerBenchmarkTests(unittest.TestCase):
+    def test_overlapping_benchmarks_are_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'benchmark.lock'
+            with bench.benchmark_lock(path):
+                with self.assertRaises(SystemExit):
+                    with bench.benchmark_lock(path):
+                        self.fail('Overlapping benchmark acquired the lock')
+            with bench.benchmark_lock(path):
+                pass
+
     def test_wrong_session_rejected(self):
         command=[sys.executable,'-u','-c',"import sys,json;sys.stdin.readline();print(json.dumps({'session_id':99}))"]
         worker=bench.Worker(command,subprocess.DEVNULL)

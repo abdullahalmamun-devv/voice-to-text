@@ -72,7 +72,10 @@ impl Engine {
             return Err("Invalid vocabulary prompt".into());
         }
         if !speech_energy(samples) {
-            return Ok(Transcript::default());
+            return Ok(Transcript {
+                no_timestamps,
+                ..Transcript::default()
+            });
         }
         let start = Instant::now();
         let mut state = self
@@ -143,8 +146,8 @@ impl Engine {
         let recognized_language =
             whisper_rs::get_lang_str(state.full_lang_id_from_state()).map(str::to_string);
         let review_required = crate::text::unexpected_script(&text, language);
-        let timing_reliable = !no_timestamps
-            && reliable_timing(&segments, samples.len() as u64 * 1000 / 16000);
+        let timing_reliable =
+            !no_timestamps && reliable_timing(&segments, samples.len() as u64 * 1000 / 16000);
         Ok(Transcript {
             no_timestamps,
             recognized_language,
