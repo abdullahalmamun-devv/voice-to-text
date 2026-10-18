@@ -13,5 +13,5 @@
     "GGML_OPENMP": "OFF"
   },
   "runtime": "whisper-rs 0.15.1 / whisper-rs-sys 0.14.1 / whisper.cpp 1.7.6",
-  "limits": "Shared Linux virtual host, not Windows or end-to-end microphone latency. Small run overlapped one-thread development conversion/quantizer preparation; timing exploratory, not a controlled speed gate."
+  "limits": "Shared Linux virtual host, not Windows or end-to-end microphone latency. Small run overlapped one-thread development conversion/quantizer preparation; timing exploratory, not a controlled speed gate. Turbo rows 15-17 overlapped oversubscribed diagnostics and timed out; restarted workers after row 15 loaded a changed binary. Do not use Turbo run for controlled ranking or latency claims. Zipformer and repeated timestamp/UTF-8 diagnostics ran sequentially."
 }

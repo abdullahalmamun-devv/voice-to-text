@@ -25,6 +25,15 @@ def digest(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
+def checkpoint_json(path, value):
+    temporary = path.with_suffix(path.suffix + '.tmp')
+    with temporary.open('w', encoding='utf-8') as output:
+        json.dump(value, output, ensure_ascii=False, indent=2)
+        output.flush()
+        os.fsync(output.fileno())
+    os.replace(temporary, path)
+
+
 @contextmanager
 def benchmark_lock(path=None):
     """Avoid oversubscribed GGML workers invalidating timeout/speed comparisons."""
@@ -136,7 +145,7 @@ def run():
     cfg = args.output / 'run-config.json'
     if cfg.exists() and json.loads(cfg.read_text()) != config:
         raise SystemExit('Different configuration already exists in output directory')
-    cfg.write_text(json.dumps(config, indent=2))
+    checkpoint_json(cfg, config)
     rows, worker, cold = [], None, True
     with (args.output / 'worker-stderr.log').open('w') as stderr:
         try:
@@ -145,6 +154,8 @@ def run():
                 if item.get('sha256') and digest(audio) != item['sha256']:
                     raise SystemExit('Audio integrity mismatch: ' + item['id'])
                 if worker is None:
+                    if digest(args.binary) != config['binary_sha256']:
+                        raise SystemExit('Benchmark binary changed; preserve this partial run and use a new directory')
                     worker = Worker([str(args.binary.resolve()), '--worker'], stderr)
                     cold = True
                 start, error, transcript = time.perf_counter(), None, {}
@@ -152,7 +163,7 @@ def run():
                     response = worker.request({'session_id': index, 'model': str(args.model.resolve()),
                                                'wav_path': str(audio), 'samples': [], 'language': item.get('language') or 'bn',
                                                'prompt': '', 'preview': False, 'no_timestamps': args.no_timestamps}, args.timeout)
-                    (args.output / f'result-{index:04}.json').write_text(json.dumps(response, ensure_ascii=False), encoding='utf-8')
+                    checkpoint_json(args.output / f'result-{index:04}.json', response)
                     if response.get('error'):
                         error = response['error']
                     else:
@@ -182,9 +193,11 @@ def run():
                 rows.append(row)
                 with (args.output / 'rows.jsonl').open('a', encoding='utf-8') as stream:
                     stream.write(json.dumps(row, ensure_ascii=False)+'\n')
+                    stream.flush()
+                    os.fsync(stream.fileno())
                 report = summarize(rows)
                 report['configuration'] = config
-                (args.output/'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
+                checkpoint_json(args.output/'report.json', report)
                 print(json.dumps({'done': index, 'total': len(items), 'id': item['id'], 'error': error, 'decode_ms': decode}), flush=True)
                 cold = False
         finally:
@@ -195,6 +208,8 @@ def run():
             writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
             writer.writeheader()
             writer.writerows(rows)
+            stream.flush()
+            os.fsync(stream.fileno())
 
 
 def main():

@@ -2,6 +2,8 @@
 
 Status: 18 October 2026. Bengali recognition is the primary product gate. UI expansion is secondary until local speech quality is demonstrated. No current model has passed stable acceptance.
 
+Measured update: the external Bengali Zipformer candidate completed all 30 frozen clips with 17.74% normalized WER, 5.38% scalar CER and zero decoder errors. It is the next native integration experiment, not an accepted app engine. The clean 10% normalized-WER target is still unmet. The Small baselines failed; the Turbo run is confounded, and timestamp ablation did not establish a fix. See [full evidence and decision](../benchmarks/fleurs-bn-smoke-30/DECISION.md).
+
 ## Immediate comparison
 
 Run the same final app decoder, CPU profile and frozen audio manifest against:

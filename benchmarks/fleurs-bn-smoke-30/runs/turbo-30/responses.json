@@ -1,0 +1,436 @@
+[
+  {
+    "session_id": 1,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 2,
+    "preview": false,
+    "transcript": {
+      "text": "এক জন সুদোমাত্র আশ চার্য হতে পারে এই ভেবে জে যখন নতুন কিসু আশে তখন কি বোড কি রকম হোয়ে",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 10440,
+          "text": "এক জন সুদোমাত্র আশ চার্য হতে পারে এই ভেবে জে যখন নতুন কিসু আশে তখন কি বোড কি রকম হোয়ে"
+        }
+      ],
+      "decode_ms": 19947,
+      "load_ms": 191,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true
+    },
+    "error": null
+  },
+  {
+    "session_id": 3,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 4,
+    "preview": false,
+    "transcript": {
+      "text": "তুটি পউইন্টের মাঝে দুজন ড্রাইবার এবং তাদের জানের মদ্ধে জে চলন ও কথাবাদ তরা চলে সেই বিদাকেই ট্রাফিক ফ্লো বলে",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 9440,
+          "text": "তুটি পউইন্টের মাঝে দুজন ড্রাইবার এবং তাদের জানের মদ্ধে জে চলন ও কথাবাদ তরা চলে সেই বিদাকেই ট্রাফিক ফ্লো বলে"
+        }
+      ],
+      "decode_ms": 19168,
+      "load_ms": 191,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true
+    },
+    "error": null
+  },
+  {
+    "session_id": 5,
+    "preview": false,
+    "transcript": {
+      "text": "পুলিস সুপার চন্র শেকর শোল্সকি জানিয়ে সিলেন হবিজুক্টোরা মোক ধাকা অবস্তায় আদলতে হাজির হয়ে সিলো",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 10560,
+          "text": "পুলিস সুপার চন্র শেকর শোল্সকি জানিয়ে সিলেন হবিজুক্টোরা মোক ধাকা অবস্তায় আদলতে হাজির হয়ে সিলো"
+        }
+      ],
+      "decode_ms": 19676,
+      "load_ms": 191,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true
+    },
+    "error": null
+  },
+  {
+    "session_id": 6,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 7,
+    "preview": false,
+    "transcript": {
+      "text": "পার্সলনার স্য়াডকারি ভাসা হলো কাতালান এবং ইস্পানিশ প্যা অর্ধেত জনগুষ্থি কাতালান ভাসা কথাবলে থাকে বহসংকক মানুষ এই",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "পার্সলনার স্য়াডকারি ভাসা হলো কাতালান এবং ইস্পানিশ প্যা অর্ধেত জনগুষ্থি কাতালান ভাসা কথাবলে থাকে বহসংকক মানুষ এই"
+        }
+      ],
+      "decode_ms": 30170,
+      "load_ms": 191,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 8,
+    "preview": false,
+    "transcript": {
+      "text": "আনোসথানিক ভাবে ফোকলান্স এর মুদ্রা হলো ফোকলেন পাউন্ড এফ কে পি জায়ান এড বিটিশ পাউন জি বি পি এর সোমান",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 13560,
+          "text": "আনোসথানিক ভাবে ফোকলান্স এর মুদ্রা হলো ফোকলেন পাউন্ড এফ কে পি জায়ান এড বিটিশ পাউন জি বি পি এর সোমান"
+        }
+      ],
+      "decode_ms": 28526,
+      "load_ms": 191,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true
+    },
+    "error": null
+  },
+  {
+    "session_id": 9,
+    "preview": false,
+    "transcript": {
+      "text": "তিনি আরো জক করেন জাতাদের উননাযনের ইস্তর দাইত্তো এবং সকখমতার সিমা ছারিয়া জাই সেই সব বিশযে তাদের বাধ্ধ করা উচিতনা",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 12580,
+          "text": "তিনি আরো জক করেন জাতাদের উননাযনের ইস্তর দাইত্তো এবং সকখমতার সিমা ছারিয়া জাই সেই সব বিশযে তাদের বাধ্ধ করা উচিতনা"
+        }
+      ],
+      "decode_ms": 28885,
+      "load_ms": 191,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true
+    },
+    "error": null
+  },
+  {
+    "session_id": 10,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 11,
+    "preview": false,
+    "transcript": {
+      "text": "সুন্দরবন কে ইন্সকের য়াল্ড হেরিটেস সাইটিশেবে ঘসুনা করা হোয় ছে ভারতি অবগন্ডের মদ্ধাকা বনের অংশোটি কে সুন্দরব",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "সুন্দরবন কে ইন্সকের য়াল্ড হেরিটেস সাইটিশেবে ঘসুনা করা হোয় ছে ভারতি অবগন্ডের মদ্ধাকা বনের অংশোটি কে সুন্দরব"
+        }
+      ],
+      "decode_ms": 29471,
+      "load_ms": 191,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 12,
+    "preview": false,
+    "transcript": {
+      "text": "আপনি জদি সুদু মাত্র সীপ্ব ডে করে উবহুলে জান তবে সেখেত্র আপনার আলাদা করে বিশা লাগে নার দুই হাজা নায অনু জাই",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 11480,
+          "text": "আপনি জদি সুদু মাত্র সীপ্ব ডে করে উবহুলে জান তবে সেখেত্র আপনার আলাদা করে বিশা লাগে নার দুই হাজা নায অনু জাই"
+        }
+      ],
+      "decode_ms": 28662,
+      "load_ms": 191,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true
+    },
+    "error": null
+  },
+  {
+    "session_id": 13,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 14,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 18,
+    "preview": false,
+    "transcript": {
+      "text": "এরো এস্মিদ তাদের সফারের অবসিষ্ট কন্সার্কুলো বাতির করেশেন",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 6960,
+          "text": "এরো এস্মিদ তাদের সফারের অবসিষ্ট কন্সার্কুলো বাতির করেশেন"
+        }
+      ],
+      "decode_ms": 19765,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 19,
+    "preview": false,
+    "transcript": {
+      "text": "দুটি পউইন্টের মাঝে দুজন ড্রাইবার এবং তাদের জানের মধ্ধে জে চলোন ও কথা ভত্তরা চলে সে বিদা কে ট্রাফিক ফ্লো বলে",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 12240,
+          "text": "দুটি পউইন্টের মাঝে দুজন ড্রাইবার এবং তাদের জানের মধ্ধে জে চলোন ও কথা ভত্তরা চলে সে বিদা কে ট্রাফিক ফ্লো বলে"
+        }
+      ],
+      "decode_ms": 20133,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 20,
+    "preview": false,
+    "transcript": {
+      "text": "জদি তুমি নাশনাল ট্রেজার সিনেমাটি দেখে থাকো তুমি হয়তো বাভ্বে পারো জে সমপদের মান চিত্র লেখা হয়ে ছিল সাধিনতা ঘসন",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "জদি তুমি নাশনাল ট্রেজার সিনেমাটি দেখে থাকো তুমি হয়তো বাভ্বে পারো জে সমপদের মান চিত্র লেখা হয়ে ছিল সাধিনতা ঘসন"
+        }
+      ],
+      "decode_ms": 30077,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 21,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 22,
+    "preview": false,
+    "transcript": {
+      "text": "গুমে বেখাত হচ্ছে সাবাবিক গুমে সুমায় উদ্দেশ মুলগ জেগেথাকার প্রক্ক্িযা এবং অলপো সুমায় দশ থেকে সাইট মিনিট পরে গ",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "গুমে বেখাত হচ্ছে সাবাবিক গুমে সুমায় উদ্দেশ মুলগ জেগেথাকার প্রক্ক্িযা এবং অলপো সুমায় দশ থেকে সাইট মিনিট পরে গ"
+        }
+      ],
+      "decode_ms": 28519,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 23,
+    "preview": false,
+    "transcript": {
+      "text": "মিশেস কাডচনার প্রিদেন প্রাকতি হিশেবে লারার ইচছা প্রকাস করে গ্ষোনা দ্য়েশেন আর্জেন্টাইন থিয়েডারে একয় জাইগ একোয জাইগাই জেখান থেকে ছে দ্যাদাক পাসালে বোযান্স আইরেস পদেশে তের সিনেক পদিনিদি দলের সবো হাওআ পচারনার সুডুকরেস",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 8540,
+          "text": "মিশেস কাডচনার প্রিদেন প্রাকতি হিশেবে লারার ইচছা প্রকাস করে গ্ষোনা দ্য়েশেন আর্জেন্টাইন থিয়েডারে"
+        },
+        {
+          "start_ms": 8540,
+          "end_ms": 8540,
+          "text": "একয় জাইগ"
+        },
+        {
+          "start_ms": 8540,
+          "end_ms": 38540,
+          "text": "একোয জাইগাই জেখান থেকে ছে দ্যাদাক পাসালে বোযান্স আইরেস পদেশে তের সিনেক পদিনিদি দলের সবো হাওআ পচারনার সুডুকরেস"
+        }
+      ],
+      "decode_ms": 60364,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 24,
+    "preview": false,
+    "transcript": {
+      "text": "জারা রাজ্যে কাস করেন তাদের কাসে ইটালিও পোতিদিনের ব্রাভারেক ভাসা এবং লাতিন প্রাইশোই ধরমিয় অনুস্থান গুলিতে ব্রা",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "জারা রাজ্যে কাস করেন তাদের কাসে ইটালিও পোতিদিনের ব্রাভারেক ভাসা এবং লাতিন প্রাইশোই ধরমিয় অনুস্থান গুলিতে ব্রা"
+        }
+      ],
+      "decode_ms": 28595,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 25,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 26,
+    "preview": false,
+    "transcript": {
+      "text": "তিনি যাখন হাস্পাতালে কাস্ক করসিলেন তখন লিগিন্স তার অবশার সমায় অকাল পশাবের তদন্তো শুরু তরেসিলেন",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 12600,
+          "text": "তিনি যাখন হাস্পাতালে কাস্ক করসিলেন তখন লিগিন্স তার অবশার সমায় অকাল পশাবের তদন্তো শুরু তরেসিলেন"
+        }
+      ],
+      "decode_ms": 21087,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 27,
+    "preview": false,
+    "transcript": {
+      "text": "দিতিয়ে সেটির প্রথাম দিকে ডেল পট্র্রো প্রধান পেশিল তাবে সাই বাই সাই এপ ওসন্য়ে পডে এটির খেত্রো টাইব্রেকার প্",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "দিতিয়ে সেটির প্রথাম দিকে ডেল পট্র্রো প্রধান পেশিল তাবে সাই বাই সাই এপ ওসন্য়ে পডে এটির খেত্রো টাইব্রেকার প্"
+        }
+      ],
+      "decode_ms": 30454,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 28,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 29,
+    "preview": false,
+    "transcript": {
+      "text": "অক্টোবরে শুরুহ঵া খমতাবান্দের বিরুদ্দে ব্যাফক বিখপে মাটেলির পতিক্ক্িরিযা হলো এই কমিশন",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 8820,
+          "text": "অক্টোবরে শুরুহ঵া খমতাবান্দের বিরুদ্দে ব্যাফক বিখপে মাটেলির পতিক্ক্িরিযা হলো এই কমিশন"
+        }
+      ],
+      "decode_ms": 27475,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true,
+      "no_timestamps": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 30,
+    "preview": false,
+    "transcript": {
+      "text": "জদিয় এটি সতত নাই তার পার দো লিলের পিছনে কিছু লেখা আশে এটি কনো গুপত ধনের মান চিত্র নাই",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 8340,
+          "text": "জদিয় এটি সতত নাই তার পার দো লিলের পিছনে কিছু লেখা আশে এটি কনো গুপত ধনের মান চিত্র নাই"
+        }
+      ],
+      "decode_ms": 25310,
+      "load_ms": 257,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true,
+      "no_timestamps": false
+    },
+    "error": null
+  }
+]

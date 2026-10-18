@@ -8,6 +8,7 @@ import argparse
 import csv
 import importlib.util
 import json
+import os
 from pathlib import Path
 import struct
 import time
@@ -76,7 +77,7 @@ def run():
               'runner_sha256':bench.digest(Path(__file__)), 'numpy_version':np.__version__,
               'normalization':'NFC + Unicode punctuation to spaces + whitespace; no digit/spelling rewriting',
               'qualified_default':False}
-    (args.output/'run-config.json').write_text(json.dumps(config, indent=2))
+    bench.checkpoint_json(args.output/'run-config.json', config)
     load_start = time.perf_counter()
     recognizer = sherpa_onnx.OnlineRecognizer.from_transducer(
         **{name:str(args.model_folder/(name+'.onnx')) for name in ('encoder','decoder','joiner')},
@@ -84,6 +85,7 @@ def run():
         decoding_method='modified_beam_search', max_active_paths=4, enable_endpoint_detection=False,
         model_type='zipformer2', provider='cpu')
     config['recognizer_load_ms'] = round((time.perf_counter()-load_start)*1000)
+    bench.checkpoint_json(args.output/'run-config.json', config)
     rows = []
     for index, item in enumerate(items, 1):
         path = (args.corpus.parent/item['audio']).resolve()
@@ -115,11 +117,15 @@ def run():
         rows.append(row)
         with (args.output/'rows.jsonl').open('a',encoding='utf-8') as output:
             output.write(json.dumps(row,ensure_ascii=False)+'\n')
+            output.flush()
+            os.fsync(output.fileno())
         report = bench.summarize(rows); report['configuration'] = config
-        (args.output/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+        bench.checkpoint_json(args.output/'report.json', report)
         print(json.dumps({'done':index,'total':len(items),'error':error,'decode_ms':decode}),flush=True)
     with (args.output/'results.csv').open('w',encoding='utf-8-sig',newline='') as output:
         writer=csv.DictWriter(output,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+        output.flush()
+        os.fsync(output.fileno())
 
 
 if __name__ == '__main__':

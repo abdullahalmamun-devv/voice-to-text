@@ -1,0 +1,24 @@
+{
+  "version": "1.13.8",
+  "source": "https://github.com/k2-fsa/sherpa-onnx",
+  "license": "Apache-2.0",
+  "installed_native_file_sha256": {
+    "sherpa_onnx/lib/_sherpa_onnx.cpython-312-x86_64-linux-gnu.so": "eb9c3545b310ecd97ba0a2ff53fe39f8d8fb9efaea2dea0ca333ae9050bf2cd2",
+    "sherpa_onnx/lib/libsherpa-onnx-cxx-api.so": "196b90972ddadf8133663b0cb86063c7b9d247687cd0689d0c800ec1ea08254b",
+    "sherpa_onnx/lib/libonnxruntime.so": "4b3607aebd1784b26b6f9b20e4bd974c7ab8287043e4d095cb7d2cb40b5e566e",
+    "sherpa_onnx/lib/libsherpa-onnx-c-api.so": "e50ae8bca4db52b7be04f56f8ac1502b940ca124a26fac0d48d8cef7fc9823d4"
+  },
+  "python_wheels": [
+    {
+      "filename": "sherpa_onnx-1.13.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/13/78/2f712b7408ddbb64614c20388912414705b728516224e737b63f2adec94a/sherpa_onnx-1.13.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "digests": {
+        "blake2b_256": "13782f712b7408ddbb64614c20388912414705b728516224e737b63f2adec94a",
+        "md5": "977f5e954b7df745b219580d5cdeab3b",
+        "sha256": "6949773017647febc0c3696dffb2c67dd3febd4737b87e3dd135a42773704a06"
+      },
+      "size": 4400575
+    }
+  ],
+  "scope": "Research host only; no Windows runtime packaged or verified"
+}
