@@ -1,0 +1,33 @@
+prompt_id,slice,prompt,reference_policy
+clean-01,clean,আজ সকালে বাজার থেকে কিছু সবজি কিনে এনেছি।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+clean-02,clean,আমি আগামীকাল চাঁপাইনবাবগঞ্জ থেকে ঢাকায় যাব।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+clean-03,clean,বিকেলে বৃষ্টি হলে আমরা বাইরে যাব না।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+clean-04,clean,তুমি সময় পেলে আমাকে খবর দিয়ো।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+clean-05,clean,এই লেখাটার শেষ অনুচ্ছেদ আরেকবার পড়ে দেখো।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+clean-06,clean,সকাল থেকে বিদ্যুৎ নেই বলে কাজটা শেষ করতে পারিনি।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+clean-07,clean,বাড়ির সামনে নতুন একটা বইয়ের দোকান খুলেছে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+clean-08,clean,আমার মনে হয় বিষয়টা আগে বুঝে নেওয়া ভালো।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+mixed-01,mixed,আজ client-এর সঙ্গে meeting আছে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+mixed-02,mixed,এই proposal-টা deadline-এর আগে submit করতে হবে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+mixed-03,mixed,GitHub-এ নতুন branch তৈরি করে code push করো।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+mixed-04,mixed,React আর TypeScript দিয়ে frontend তৈরি করা হয়েছে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+mixed-05,mixed,Invoice-এর payment এখনো pending আছে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+mixed-06,mixed,Browser refresh করলে dashboard দেখা যাচ্ছে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+mixed-07,mixed,আমরা backend API-এর response পরীক্ষা করছি।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+mixed-08,mixed,Project-এর backup নিয়ে তারপর update দাও।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+entities-01,entities,মোট নয় হাজার পাঁচশো টাকা লাগবে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+entities-02,entities,দাম তিন লাখ বিশ হাজার টাকা।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+entities-03,entities,আগামী মঙ্গলবার সকাল দশটায় দেখা হবে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+entities-04,entities,প্রথম ফাইলে বারোটি আর দ্বিতীয় ফাইলে সাতটি ছবি আছে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+entities-05,entities,"উদাহরণের কোড এক দুই শূন্য পাঁচ, অঙ্কগুলো আলাদা রাখো।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+entities-06,entities,রাফিয়া রহমান আজ রাজশাহী থেকে এসেছেন।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+entities-07,entities,সুমন আহমেদ আর নীলা আক্তারের নাম তালিকায় আছে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+entities-08,entities,"পাঁচ থেকে সাত হাজার টাকা লাগতে পারে, এখনো নিশ্চিত নয়।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+negation-01,negation,"আমি আজ যাব না, আগামীকাল যাব।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+negation-02,negation,"না না, ওই ফাইলটা পাঠাবেন না।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+negation-03,negation,"দশটায় নয়, এগারোটায় meeting রাখুন।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+negation-04,negation,"এটা জমা হয়েছে, কিন্তু অনুমোদন হয়নি।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+negation-05,negation,আমি বলিনি যে কাজটা শেষ হয়েছে।,Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+negation-06,negation,"পুরোনো লেখাটা মুছবে না, শুধু নতুন লাইন যোগ করো।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+negation-07,negation,"চিনি কম দেবেন, একেবারে বাদ দেবেন না।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.
+negation-08,negation,"টাকা দেওয়া হয়নি, শুধু হিসাব করা হয়েছে।",Verbatim spoken words; raw script and digits retained. No ASR-driven reference edits.

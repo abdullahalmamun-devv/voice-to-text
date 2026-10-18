@@ -34,7 +34,8 @@ class Worker:
                     self.responses.put(line)
             finally:
                 self.responses.put(None)
-        threading.Thread(target=read, daemon=True).start()
+        self.reader = threading.Thread(target=read, daemon=True)
+        self.reader.start()
 
     def request(self, payload, timeout):
         self.process.stdin.write(json.dumps(payload, ensure_ascii=False) + '\n')
@@ -54,6 +55,9 @@ class Worker:
         if self.process.poll() is None:
             self.process.kill()
         self.process.wait(timeout=10)
+        self.reader.join(timeout=1)
+        self.process.stdin.close()
+        self.process.stdout.close()
 
 
 def summarize(rows):
@@ -86,6 +90,7 @@ def main():
         parser.add_argument(name, type=Path)
     parser.add_argument('--timeout', type=float, default=180)
     parser.add_argument('--cpu-profile', required=True)
+    parser.add_argument('--no-timestamps', action='store_true')
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     with args.corpus.open(encoding='utf-8-sig', newline='') as stream:
@@ -95,11 +100,15 @@ def main():
         raise SystemExit('Corpus IDs must be present and unique')
     config = {'binary_sha256': digest(args.binary), 'model_sha256': digest(args.model),
               'corpus_sha256': digest(args.corpus), 'cpu_profile': args.cpu_profile,
+              'model_manifest_sha256': digest(args.model.with_suffix('.manifest.json')) if args.model.with_suffix('.manifest.json').exists() else None,
+              'no_timestamps': args.no_timestamps, 'runner_sha256': digest(Path(__file__)),
               'mode': 'one persistent app worker, first request cold, later requests warm unless restarted',
               'decoder': 'app final beam=5, temperature=0, fallback increment=0.2, no translation/context/prompt',
               'normalization': 'NFC + Unicode punctuation to spaces + whitespace; digits/spelling not rewritten',
               'cer': 'Unicode scalar values including normalized spaces, not graphemes',
               'timeout_seconds': args.timeout, 'available_cpu_count': len(os.sched_getaffinity(0)) if hasattr(os, 'sched_getaffinity') else os.cpu_count()}
+    if (args.output/'rows.jsonl').exists():
+        raise SystemExit('Output already contains rows; use a new directory for another run')
     cfg = args.output / 'run-config.json'
     if cfg.exists() and json.loads(cfg.read_text()) != config:
         raise SystemExit('Different configuration already exists in output directory')
@@ -118,7 +127,7 @@ def main():
                 try:
                     response = worker.request({'session_id': index, 'model': str(args.model.resolve()),
                                                'wav_path': str(audio), 'samples': [], 'language': item.get('language') or 'bn',
-                                               'prompt': '', 'preview': False}, args.timeout)
+                                               'prompt': '', 'preview': False, 'no_timestamps': args.no_timestamps}, args.timeout)
                     (args.output / f'result-{index:04}.json').write_text(json.dumps(response, ensure_ascii=False), encoding='utf-8')
                     if response.get('error'):
                         error = response['error']

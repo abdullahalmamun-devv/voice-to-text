@@ -11,8 +11,6 @@ import hashlib
 import json
 from pathlib import Path
 import struct
-import numpy as np
-from safetensors import safe_open
 
 MAPPING = {
     'self_attn.k_proj':'attn.key', 'self_attn.q_proj':'attn.query',
@@ -67,6 +65,8 @@ def template_prefix(template, config, vocab):
 
 
 def main():
+    import numpy as np
+    from safetensors import safe_open
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('hf_folder', type=Path)
     parser.add_argument('template', type=Path)

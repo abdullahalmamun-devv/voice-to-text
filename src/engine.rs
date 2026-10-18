@@ -23,6 +23,8 @@ pub struct Transcript {
     pub review_required: bool,
     #[serde(default)]
     pub timing_reliable: bool,
+    #[serde(default)]
+    pub no_timestamps: bool,
 }
 pub struct Engine {
     context: WhisperContext,
@@ -49,6 +51,16 @@ impl Engine {
         language: &str,
         prompt: &str,
         preview: bool,
+    ) -> Result<Transcript, String> {
+        self.transcribe_profile(samples, language, prompt, preview, false)
+    }
+    pub fn transcribe_profile(
+        &self,
+        samples: &[f32],
+        language: &str,
+        prompt: &str,
+        preview: bool,
+        no_timestamps: bool,
     ) -> Result<Transcript, String> {
         if samples.len() > MAX_FILE || samples.iter().any(|x| !x.is_finite()) {
             return Err("Invalid or oversized audio".into());
@@ -86,6 +98,7 @@ impl Engine {
             Some(language)
         });
         params.set_translate(false);
+        params.set_no_timestamps(no_timestamps);
         params.set_no_context(true);
         params.set_print_special(false);
         params.set_print_progress(false);
@@ -130,8 +143,10 @@ impl Engine {
         let recognized_language =
             whisper_rs::get_lang_str(state.full_lang_id_from_state()).map(str::to_string);
         let review_required = crate::text::unexpected_script(&text, language);
-        let timing_reliable = reliable_timing(&segments, samples.len() as u64 * 1000 / 16000);
+        let timing_reliable = !no_timestamps
+            && reliable_timing(&segments, samples.len() as u64 * 1000 / 16000);
         Ok(Transcript {
+            no_timestamps,
             recognized_language,
             review_required,
             timing_reliable,

@@ -14,6 +14,8 @@ pub struct Request {
     pub samples: Vec<f32>,
     #[serde(default)]
     pub wav_path: Option<String>,
+    #[serde(default)]
+    pub no_timestamps: bool,
     pub language: String,
     pub prompt: String,
     pub preview: bool,
@@ -63,11 +65,12 @@ pub fn serve() -> Result<(), String> {
             } else {
                 &req.samples
             };
-            engine.as_ref().ok_or("Model unavailable")?.transcribe(
+            engine.as_ref().ok_or("Model unavailable")?.transcribe_profile(
                 samples,
                 &req.language,
                 &req.prompt,
                 req.preview,
+                req.no_timestamps,
             )
         })();
         let response = match result {

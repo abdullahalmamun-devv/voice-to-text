@@ -808,6 +808,7 @@ impl App {
             model: self.settings.model_path.clone(),
             samples,
             wav_path: if preview { None } else { self.last_wav.clone() },
+            no_timestamps: false,
             language: self.settings.language.clone(),
             prompt: text::prompt(&self.settings.entries),
             preview,
