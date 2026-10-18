@@ -17,3 +17,10 @@ __pycache__/
 /models/*.part*
 /models/.*
 /model-packs/
+
+# Dataset originals, derived audio, personal recordings and model checkpoints stay local.
+/data/sources/
+/data/processed/
+/data/manifests/*.jsonl
+/experiments/**/checkpoints/
+/.pytest_cache/

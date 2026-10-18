@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "policy": "Unknown/restricted rights are excluded from production training; dataset discovery is not approval.",
+  "sources": [
+    {
+      "id": "openslr53",
+      "priority": 1,
+      "license": null,
+      "commercial_use_allowed": null,
+      "production_training_approved": false,
+      "license_status": "not_verified",
+      "source": null,
+      "revision": null
+    },
+    {
+      "id": "bangla10k",
+      "priority": 2,
+      "license": null,
+      "commercial_use_allowed": null,
+      "production_training_approved": false,
+      "license_status": "not_verified",
+      "source": null,
+      "revision": null
+    },
+    {
+      "id": "commonvoice",
+      "priority": 3,
+      "license": null,
+      "commercial_use_allowed": null,
+      "production_training_approved": false,
+      "license_status": "not_verified",
+      "source": null,
+      "revision": null
+    },
+    {
+      "id": "indicvoices",
+      "priority": 4,
+      "license": null,
+      "commercial_use_allowed": null,
+      "production_training_approved": false,
+      "license_status": "not_verified",
+      "source": null,
+      "revision": null
+    },
+    {
+      "id": "fleurs",
+      "priority": 5,
+      "license": null,
+      "commercial_use_allowed": null,
+      "production_training_approved": false,
+      "license_status": "not_verified",
+      "source": null,
+      "revision": null
+    }
+  ]
+}

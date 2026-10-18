@@ -1,0 +1,22 @@
+{
+  "scope": "Recorded development/regression outputs; no new inference or training",
+  "corpus": {
+    "path": "benchmarks/fleurs-bn-smoke-30/corpus.csv",
+    "sha256": "3c8b0b412fd9251fb09e8e7671b6c7ef382c3b379a971781e82cdff0a0578a9c"
+  },
+  "results": {
+    "zipformer_research": {
+      "path": "benchmarks/fleurs-bn-smoke-30/runs/zipformer-30-serial/results.csv",
+      "sha256": "8384b8c4ce3870d04052e717b4ce0bfa0d8631e89a703775188af771982bffa4"
+    },
+    "native_windows": {
+      "path": "benchmarks/native-bengali-ci/2026-10-18/windows/results.csv",
+      "sha256": "fcc536977b21eb48e53087321b10dade3c29d6584c8e3946bc59447a4cfe5820"
+    },
+    "native_linux": {
+      "path": "benchmarks/native-bengali-ci/2026-10-18/linux/results.csv",
+      "sha256": "16e8390fdbc668630716ddaec5a7921742d6d8511f520e0d77c1052103cc8657"
+    }
+  },
+  "timing": "Original recorded WAV worker request; not microphone stop-to-final"
+}

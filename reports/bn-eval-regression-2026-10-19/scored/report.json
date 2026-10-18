@@ -1,0 +1,1890 @@
+{
+  "bootstrap": {
+    "method": "paired percentile cluster bootstrap; corpus micro-averaged ratios",
+    "models": {
+      "native_linux": {
+        "bn_only_wer": {
+          "defined_resamples": 2000,
+          "high": 0.2262445392664838,
+          "low": 0.13711071346988501
+        },
+        "cer": {
+          "defined_resamples": 2000,
+          "high": 0.07155032986374353,
+          "low": 0.03708897926369515
+        },
+        "latin_word_recall": {
+          "defined_resamples": 1262,
+          "high": 0.0,
+          "low": 0.0
+        },
+        "money_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "name_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "negation_preservation": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "non_speech_false_accept_rate": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "normalized_wer": {
+          "defined_resamples": 2000,
+          "high": 0.22048162525562992,
+          "low": 0.13564669633687096
+        },
+        "number_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "raw_wer": {
+          "defined_resamples": 2000,
+          "high": 0.35364365918578095,
+          "low": 0.253889458942289
+        },
+        "variant_wer": {
+          "defined_resamples": 2000,
+          "high": 0.22048162525562992,
+          "low": 0.13564669633687096
+        }
+      },
+      "native_windows": {
+        "bn_only_wer": {
+          "defined_resamples": 2000,
+          "high": 0.2262445392664838,
+          "low": 0.13711071346988501
+        },
+        "cer": {
+          "defined_resamples": 2000,
+          "high": 0.07155032986374353,
+          "low": 0.03708897926369515
+        },
+        "latin_word_recall": {
+          "defined_resamples": 1262,
+          "high": 0.0,
+          "low": 0.0
+        },
+        "money_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "name_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "negation_preservation": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "non_speech_false_accept_rate": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "normalized_wer": {
+          "defined_resamples": 2000,
+          "high": 0.22048162525562992,
+          "low": 0.13564669633687096
+        },
+        "number_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "raw_wer": {
+          "defined_resamples": 2000,
+          "high": 0.35364365918578095,
+          "low": 0.253889458942289
+        },
+        "variant_wer": {
+          "defined_resamples": 2000,
+          "high": 0.22048162525562992,
+          "low": 0.13564669633687096
+        }
+      },
+      "zipformer": {
+        "bn_only_wer": {
+          "defined_resamples": 2000,
+          "high": 0.2262445392664838,
+          "low": 0.13711071346988501
+        },
+        "cer": {
+          "defined_resamples": 2000,
+          "high": 0.07155032986374353,
+          "low": 0.03708897926369515
+        },
+        "latin_word_recall": {
+          "defined_resamples": 1262,
+          "high": 0.0,
+          "low": 0.0
+        },
+        "money_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "name_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "negation_preservation": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "non_speech_false_accept_rate": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "normalized_wer": {
+          "defined_resamples": 2000,
+          "high": 0.22048162525562992,
+          "low": 0.13564669633687096
+        },
+        "number_exact_match": {
+          "defined_resamples": 0,
+          "high": null,
+          "low": null
+        },
+        "raw_wer": {
+          "defined_resamples": 2000,
+          "high": 0.35364365918578095,
+          "low": 0.253889458942289
+        },
+        "variant_wer": {
+          "defined_resamples": 2000,
+          "high": 0.22048162525562992,
+          "low": 0.13564669633687096
+        }
+      }
+    },
+    "paired_normalized_wer_delta": {
+      "native_linux": {
+        "baseline": "zipformer",
+        "defined_resamples": 2000,
+        "direction": "candidate minus baseline; negative is better",
+        "estimate": 0.0,
+        "high": 0.0,
+        "low": 0.0
+      },
+      "native_windows": {
+        "baseline": "zipformer",
+        "defined_resamples": 2000,
+        "direction": "candidate minus baseline; negative is better",
+        "estimate": 0.0,
+        "high": 0.0,
+        "low": 0.0
+      }
+    },
+    "resamples": 2000,
+    "seed": 0,
+    "unit": "utterance",
+    "units": 30,
+    "warning": "Unknown speakers: utterance resampling does not establish speaker independence"
+  },
+  "configuration": {
+    "bn_eval_version": "1.0.0",
+    "group_by": [
+      "region",
+      "speaker",
+      "device",
+      "kind",
+      "noise",
+      "banglish",
+      "gender"
+    ],
+    "hypotheses": {
+      "native_linux": {
+        "missing_ids": [],
+        "path": "reports/bn-eval-regression-2026-10-19/inputs/native_linux.jsonl",
+        "sha256": "9820fcf6d69b29fd14cad20192581b15c5b262808785e519745c46831662a62e"
+      },
+      "native_windows": {
+        "missing_ids": [],
+        "path": "reports/bn-eval-regression-2026-10-19/inputs/native_windows.jsonl",
+        "sha256": "1c6eaff75489cd2e1aec20c6262dff31d5d2dce7e86a138a64bc590fda97b5b7"
+      },
+      "zipformer": {
+        "missing_ids": [],
+        "path": "reports/bn-eval-regression-2026-10-19/inputs/zipformer_research.jsonl",
+        "sha256": "e7f58a9a5a83c06b261cbb707275b462c393945a9b560b484aaee5f6b13a55e7"
+      }
+    },
+    "normalization_version": "bn-nfc-punctuation-whitespace-v1",
+    "python_version": "3.12.14",
+    "reference": {
+      "path": "reports/bn-eval-regression-2026-10-19/inputs/ref.jsonl",
+      "sha256": "c25a3306cf610f580a636eef7d48833de05166accb3a1dfa358ca9a5ad0a8d13"
+    },
+    "role": "regression",
+    "source_hashes": {
+      "__init__.py": "035840e078a013f41d707f27b13a63f83729da15182343815ffec209bfd9f7b2",
+      "import_benchmark.py": "69f924f788c104baf06fdd3039038cab2f2321aab6289bc020ffa257f62508cf",
+      "metrics.py": "c3a99a331baaa72c1d48348f079b82c3d8db016c80584bc140047c379ea43113",
+      "normalize.py": "28e8960f779112a148f8dc5c840d6e03c14680a2e66c43d99cfcd346e72cde13",
+      "score.py": "65914b437c99efc7ead6c6edc340669e47030464475adb6ff83db86f5ccfc43f"
+    },
+    "text_field": "text",
+    "variants": {
+      "entries": 2,
+      "path": "/workspace/scratch/c0fcfdde3634/VoiceToText-asr-improvement/bn_eval/variants_v1.tsv",
+      "sha256": "9a523bf1b891b2d5df6c19ff18df24828b0a9377f34648c879b6b8a794687813"
+    }
+  },
+  "definitions": [
+    "Primary normalization: NFC, Unicode punctuation to spaces, whitespace collapse. No digit, case, spelling, name or negation rewriting.",
+    "WER/CER are corpus micro-averages. WER can exceed 100%. CER counts Unicode scalar values including normalized spaces, not graphemes.",
+    "BN-only WER is a Bengali-script token filter proxy, not annotated linguistic segmentation. Mixed-script tokens and numerals are excluded from that secondary proxy only.",
+    "Variant WER is secondary and applies the same frozen one-token mapping to both sides. It never replaces primary WER or critical-span exact match.",
+    "Critical metrics require human-annotated normalized-token spans. No annotations means null. A span fails on any mismatch or insertion at/inside its boundaries; adjacent insertions can conservatively fail a span. This is lexical exact match, not a semantic number parser.",
+    "Negation annotations must cover polarity-bearing phrases for affirmative AND negative cases. Unannotated positive sentences cannot establish negation preservation.",
+    "Latin recall uses per-utterance, case-folded Latin-token multiset overlap; it does not detect all spoken English or transliteration.",
+    "Non-speech FAR requires explicitly labeled empty-reference non-speech. Speech with noise metadata is not non-speech. Failed non-speech requests are reported separately and excluded from valid FAR denominator, never treated as successful silence.",
+    "Wrong-script permits Bengali and Latin; it cannot detect all transliteration/omission errors. Runaway flag: hypothesis tokens > max(50, 4 * max(1, reference tokens)).",
+    "Missing/error/invalid-UTF8 responses retain the reference and are scored as empty hypotheses. Corrupt bytes are not repaired into credited words; unidentifiable JSON rows fail the run.",
+    "latency_ms is supplied end-to-end request timing; decode_ms is separate. The scorer measures neither and makes no cross-host speed claim.",
+    "Bootstrap is paired across models and speaker-clustered when all speakers are known. Small, reused development data and unknown upstream training overlap cannot prove generalization.",
+    "Metadata groups are marginal and joint descriptive summaries without per-group confidence intervals."
+  ],
+  "groups": {
+    "native_linux": {
+      "banglish": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 444.5,
+            "p95": 799.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 449.5,
+            "p95": 948.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "device": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 444.5,
+            "p95": 799.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 449.5,
+            "p95": 948.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "gender": {
+        "\"MALE\"": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 444.5,
+            "p95": 799.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 449.5,
+            "p95": 948.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "kind": {
+        "\"read\"": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 444.5,
+            "p95": 799.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 449.5,
+            "p95": 948.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "noise": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 444.5,
+            "p95": 799.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 449.5,
+            "p95": 948.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "region": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 444.5,
+            "p95": 799.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 449.5,
+            "p95": 948.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "region+speaker+device+kind+noise+banglish+gender": {
+        "[\"<unknown>\", \"<unknown>\", \"<unknown>\", \"\\\"read\\\"\", \"<unknown>\", \"<unknown>\", \"\\\"MALE\\\"\"]": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 444.5,
+            "p95": 799.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 449.5,
+            "p95": 948.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "speaker": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 444.5,
+            "p95": 799.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 449.5,
+            "p95": 948.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      }
+    },
+    "native_windows": {
+      "banglish": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 858.0,
+            "p95": 1567.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 865.0,
+            "p95": 1879.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "device": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 858.0,
+            "p95": 1567.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 865.0,
+            "p95": 1879.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "gender": {
+        "\"MALE\"": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 858.0,
+            "p95": 1567.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 865.0,
+            "p95": 1879.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "kind": {
+        "\"read\"": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 858.0,
+            "p95": 1567.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 865.0,
+            "p95": 1879.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "noise": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 858.0,
+            "p95": 1567.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 865.0,
+            "p95": 1879.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "region": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 858.0,
+            "p95": 1567.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 865.0,
+            "p95": 1879.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "region+speaker+device+kind+noise+banglish+gender": {
+        "[\"<unknown>\", \"<unknown>\", \"<unknown>\", \"\\\"read\\\"\", \"<unknown>\", \"<unknown>\", \"\\\"MALE\\\"\"]": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 858.0,
+            "p95": 1567.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 865.0,
+            "p95": 1879.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "speaker": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 858.0,
+            "p95": 1567.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 865.0,
+            "p95": 1879.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      }
+    },
+    "zipformer": {
+      "banglish": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 515.0,
+            "p95": 953.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 516.0,
+            "p95": 955.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "device": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 515.0,
+            "p95": 953.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 516.0,
+            "p95": 955.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "gender": {
+        "\"MALE\"": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 515.0,
+            "p95": 953.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 516.0,
+            "p95": 955.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "kind": {
+        "\"read\"": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 515.0,
+            "p95": 953.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 516.0,
+            "p95": 955.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "noise": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 515.0,
+            "p95": 953.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 516.0,
+            "p95": 955.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "region": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 515.0,
+            "p95": 953.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 516.0,
+            "p95": 955.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "region+speaker+device+kind+noise+banglish+gender": {
+        "[\"<unknown>\", \"<unknown>\", \"<unknown>\", \"\\\"read\\\"\", \"<unknown>\", \"<unknown>\", \"\\\"MALE\\\"\"]": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 515.0,
+            "p95": 953.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 516.0,
+            "p95": 955.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      },
+      "speaker": {
+        "<unknown>": {
+          "bn_only_wer": 0.18032786885245902,
+          "cer": 0.05375808860129418,
+          "count": 30,
+          "counts": {
+            "bn_word_errors": 110,
+            "bn_words": 610,
+            "character_errors": 216,
+            "characters": 4018,
+            "deletions": 13,
+            "empty_hypothesis": 0,
+            "empty_speech_hypothesis": 0,
+            "insertions": 13,
+            "invalid_utf8": 0,
+            "latin_correct": 0,
+            "latin_count": 1,
+            "money_correct": 0,
+            "money_count": 0,
+            "name_correct": 0,
+            "name_count": 0,
+            "negation_correct": 0,
+            "negation_count": 0,
+            "non_speech_count": 0,
+            "non_speech_failed": 0,
+            "non_speech_false_accept": 0,
+            "non_speech_valid": 0,
+            "number_correct": 0,
+            "number_count": 0,
+            "raw_word_errors": 187,
+            "raw_words": 617,
+            "runaway_output": 0,
+            "substitutions": 84,
+            "variant_word_errors": 110,
+            "word_errors": 110,
+            "words": 620,
+            "wrong_script": 0
+          },
+          "decode_ms": {
+            "n": 30,
+            "p50": 515.0,
+            "p95": 953.0
+          },
+          "errors": 0,
+          "latency_ms": {
+            "n": 30,
+            "p50": 516.0,
+            "p95": 955.0
+          },
+          "latin_word_recall": 0.0,
+          "money_exact_match": null,
+          "name_exact_match": null,
+          "negation_preservation": null,
+          "non_speech_false_accept_rate": null,
+          "normalized_wer": 0.1774193548387097,
+          "number_exact_match": null,
+          "raw_wer": 0.30307941653160453,
+          "variant_wer": 0.1774193548387097
+        }
+      }
+    }
+  },
+  "models": {
+    "native_linux": {
+      "bn_only_wer": 0.18032786885245902,
+      "cer": 0.05375808860129418,
+      "count": 30,
+      "counts": {
+        "bn_word_errors": 110,
+        "bn_words": 610,
+        "character_errors": 216,
+        "characters": 4018,
+        "deletions": 13,
+        "empty_hypothesis": 0,
+        "empty_speech_hypothesis": 0,
+        "insertions": 13,
+        "invalid_utf8": 0,
+        "latin_correct": 0,
+        "latin_count": 1,
+        "money_correct": 0,
+        "money_count": 0,
+        "name_correct": 0,
+        "name_count": 0,
+        "negation_correct": 0,
+        "negation_count": 0,
+        "non_speech_count": 0,
+        "non_speech_failed": 0,
+        "non_speech_false_accept": 0,
+        "non_speech_valid": 0,
+        "number_correct": 0,
+        "number_count": 0,
+        "raw_word_errors": 187,
+        "raw_words": 617,
+        "runaway_output": 0,
+        "substitutions": 84,
+        "variant_word_errors": 110,
+        "word_errors": 110,
+        "words": 620,
+        "wrong_script": 0
+      },
+      "decode_ms": {
+        "n": 30,
+        "p50": 444.5,
+        "p95": 799.0
+      },
+      "errors": 0,
+      "latency_ms": {
+        "n": 30,
+        "p50": 449.5,
+        "p95": 948.0
+      },
+      "latin_word_recall": 0.0,
+      "money_exact_match": null,
+      "name_exact_match": null,
+      "negation_preservation": null,
+      "non_speech_false_accept_rate": null,
+      "normalized_wer": 0.1774193548387097,
+      "number_exact_match": null,
+      "raw_wer": 0.30307941653160453,
+      "variant_wer": 0.1774193548387097
+    },
+    "native_windows": {
+      "bn_only_wer": 0.18032786885245902,
+      "cer": 0.05375808860129418,
+      "count": 30,
+      "counts": {
+        "bn_word_errors": 110,
+        "bn_words": 610,
+        "character_errors": 216,
+        "characters": 4018,
+        "deletions": 13,
+        "empty_hypothesis": 0,
+        "empty_speech_hypothesis": 0,
+        "insertions": 13,
+        "invalid_utf8": 0,
+        "latin_correct": 0,
+        "latin_count": 1,
+        "money_correct": 0,
+        "money_count": 0,
+        "name_correct": 0,
+        "name_count": 0,
+        "negation_correct": 0,
+        "negation_count": 0,
+        "non_speech_count": 0,
+        "non_speech_failed": 0,
+        "non_speech_false_accept": 0,
+        "non_speech_valid": 0,
+        "number_correct": 0,
+        "number_count": 0,
+        "raw_word_errors": 187,
+        "raw_words": 617,
+        "runaway_output": 0,
+        "substitutions": 84,
+        "variant_word_errors": 110,
+        "word_errors": 110,
+        "words": 620,
+        "wrong_script": 0
+      },
+      "decode_ms": {
+        "n": 30,
+        "p50": 858.0,
+        "p95": 1567.0
+      },
+      "errors": 0,
+      "latency_ms": {
+        "n": 30,
+        "p50": 865.0,
+        "p95": 1879.0
+      },
+      "latin_word_recall": 0.0,
+      "money_exact_match": null,
+      "name_exact_match": null,
+      "negation_preservation": null,
+      "non_speech_false_accept_rate": null,
+      "normalized_wer": 0.1774193548387097,
+      "number_exact_match": null,
+      "raw_wer": 0.30307941653160453,
+      "variant_wer": 0.1774193548387097
+    },
+    "zipformer": {
+      "bn_only_wer": 0.18032786885245902,
+      "cer": 0.05375808860129418,
+      "count": 30,
+      "counts": {
+        "bn_word_errors": 110,
+        "bn_words": 610,
+        "character_errors": 216,
+        "characters": 4018,
+        "deletions": 13,
+        "empty_hypothesis": 0,
+        "empty_speech_hypothesis": 0,
+        "insertions": 13,
+        "invalid_utf8": 0,
+        "latin_correct": 0,
+        "latin_count": 1,
+        "money_correct": 0,
+        "money_count": 0,
+        "name_correct": 0,
+        "name_count": 0,
+        "negation_correct": 0,
+        "negation_count": 0,
+        "non_speech_count": 0,
+        "non_speech_failed": 0,
+        "non_speech_false_accept": 0,
+        "non_speech_valid": 0,
+        "number_correct": 0,
+        "number_count": 0,
+        "raw_word_errors": 187,
+        "raw_words": 617,
+        "runaway_output": 0,
+        "substitutions": 84,
+        "variant_word_errors": 110,
+        "word_errors": 110,
+        "words": 620,
+        "wrong_script": 0
+      },
+      "decode_ms": {
+        "n": 30,
+        "p50": 515.0,
+        "p95": 953.0
+      },
+      "errors": 0,
+      "latency_ms": {
+        "n": 30,
+        "p50": 516.0,
+        "p95": 955.0
+      },
+      "latin_word_recall": 0.0,
+      "money_exact_match": null,
+      "name_exact_match": null,
+      "negation_preservation": null,
+      "non_speech_false_accept_rate": null,
+      "normalized_wer": 0.1774193548387097,
+      "number_exact_match": null,
+      "raw_wer": 0.30307941653160453,
+      "variant_wer": 0.1774193548387097
+    }
+  },
+  "schema_version": 1
+}
