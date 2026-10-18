@@ -1,0 +1,10 @@
+{
+  "mode": "sequential developer raw-segment diagnostic, one clip, original Small Q5_1",
+  "audio_sha256": "7cf52bece22aefba405829426c8b83acd67c9515986d51fb19f6a18681e80e0b",
+  "model_sha256": "ae85e4a935d7a567bd102fe55afc16bb595bdb618e11b2fc7591bc08120411bb",
+  "binary_sha256": "fdf30b8ec84dcc46f39a52a90c1f2fbb9603a55c352f825d89798d5d4d1a3532",
+  "decoder": "forced bn, beam 5, temperature 0, fallback increment .2, timestamps enabled, no context/prompt/translation; 6 threads",
+  "wall_seconds": 21.5,
+  "concatenated_utf8_valid": false,
+  "example_source": "examples/inspect-segments.rs; later byte-to-hex formatting refactor leaves decoder settings unchanged"
+}

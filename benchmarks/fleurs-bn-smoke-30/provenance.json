@@ -1,0 +1,16 @@
+{
+  "dataset": "google/fleurs",
+  "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "source_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/bn_in/",
+  "license": "CC-BY-4.0",
+  "split": "bn_in/test",
+  "selection": "First 30 WAV archive members, selected before this inference, no outcome-based exclusions",
+  "count": 30,
+  "unique_prompt_ids": 28,
+  "speaker_ids": "Unavailable in TSV; no speaker-count claim",
+  "limitations": "Read Bengali/India, not Bangladesh, mixed, noise or entity acceptance. Earlier first clips used for debugging; not an independent holdout.",
+  "raw_reference_column": 2,
+  "tsv_sha256": "a7d892390778ce23d0acf15bbba4d9454439c48607cefb923e37f55a480c4c0c",
+  "full_archive_downloaded_or_verified": false,
+  "corpus_sha256": "70c16cf52dd141c4e6d1e8aad4f0b0caa709c1a478acd963f469c5de6f14b82c"
+}

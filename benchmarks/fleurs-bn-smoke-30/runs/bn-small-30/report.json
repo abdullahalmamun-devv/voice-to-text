@@ -1,0 +1,33 @@
+{
+  "count": 30,
+  "errors": 1,
+  "slices": {
+    "read_bn_in_smoke": {
+      "n": 30,
+      "errors": 1,
+      "raw_wer": 0.8379254457050244,
+      "normalized_wer": 0.7758064516129032,
+      "normalized_scalar_cer": 0.6898954703832753,
+      "unexpected_script": 0,
+      "silence_generated_text": 0,
+      "warm_request_p50_ms": 7635.5,
+      "warm_request_p95_ms": 20816,
+      "median_decode_rtf": 0.726937984496124
+    }
+  },
+  "critical_entities": null,
+  "correction_burden": null,
+  "actual_insertions": null,
+  "configuration": {
+    "binary_sha256": "9b57b2689fe4cb23c4c2636e4570dbb434ee6869794ad5461f8f391b58412169",
+    "model_sha256": "9eb69c950bdabdae9cb5a10f169f8bda11fb30333e38f300a22dfb5c0b96ffa3",
+    "corpus_sha256": "70c16cf52dd141c4e6d1e8aad4f0b0caa709c1a478acd963f469c5de6f14b82c",
+    "cpu_profile": "AVX2/FMA/F16C, GGML_NATIVE=OFF, CPU-only, app threads cap=6",
+    "mode": "one persistent app worker, first request cold, later requests warm unless restarted",
+    "decoder": "app final beam=5, temperature=0, fallback increment=0.2, no translation/context/prompt",
+    "normalization": "NFC + Unicode punctuation to spaces + whitespace; digits/spelling not rewritten",
+    "cer": "Unicode scalar values including normalized spaces, not graphemes",
+    "timeout_seconds": 180,
+    "available_cpu_count": 9
+  }
+}

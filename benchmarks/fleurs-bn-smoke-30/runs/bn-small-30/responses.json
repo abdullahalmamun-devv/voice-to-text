@@ -1,0 +1,588 @@
+[
+  {
+    "session_id": 1,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 7384,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 2,
+    "preview": false,
+    "transcript": {
+      "text": "একজন শুধুমাত্র আঁশচর্য হতে পারে এই ভেবে যে, যখন নতুন কিছু আসে তখন কিবর কিরকম হবে।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 10200,
+          "text": "একজন শুধুমাত্র আঁশচর্য হতে পারে এই ভেবে যে, যখন নতুন কিছু আসে তখন কিবর কিরকম হবে।"
+        }
+      ],
+      "decode_ms": 5374,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true
+    },
+    "error": null
+  },
+  {
+    "session_id": 3,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 18883,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 4,
+    "preview": false,
+    "transcript": {
+      "text": ".সেই বিদ্যাকেই ট্রাফিক ফ্লব লে।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ".সেই বিদ্যাকেই ট্রাফিক ফ্লব লে।"
+        }
+      ],
+      "decode_ms": 7502,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 5,
+    "preview": false,
+    "transcript": {
+      "text": ".পুলিশ সুপার চন্দ্র শেখর শোলস্কি জানিয়েছিলেন অভিযুক্তরা মুখ ঢাকা অবস্থায় আদালতে হাজির হয়েছিল।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ".পুলিশ সুপার চন্দ্র শেখর শোলস্কি জানিয়েছিলেন অভিযুক্তরা মুখ ঢাকা অবস্থায় আদালতে হাজির হয়েছিল।"
+        }
+      ],
+      "decode_ms": 7648,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 6,
+    "preview": false,
+    "transcript": {
+      "text": ". জাপানের পারমাণবিক সংস্থার সূত্রের জানা গিয়েছে প্লানটিতে তেজস্কৃয় সিজি-আম এবং আয়োডিন চিহ্নিত করা হয়েছে।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ". জাপানের পারমাণবিক সংস্থার সূত্রের জানা গিয়েছে প্লানটিতে তেজস্কৃয় সিজি-আম এবং আয়োডিন চিহ্নিত করা হয়েছে।"
+        }
+      ],
+      "decode_ms": 8929,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 7,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 7270,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 8,
+    "preview": false,
+    "transcript": {
+      "text": "আনুষ্ঠানিকভাবে ফোকল্যান্ডস-এর মুদ্রা হল ফোকল্যান্ড পাউন্ড, এফকে পি জার্মান এক ব্রিটিশ পাউন, জি বি পি- এর সমান।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 12360,
+          "text": "আনুষ্ঠানিকভাবে ফোকল্যান্ডস-এর মুদ্রা হল ফোকল্যান্ড পাউন্ড, এফকে পি জার্মান এক ব্রিটিশ পাউন, জি বি পি- এর সমান।"
+        }
+      ],
+      "decode_ms": 8643,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": true
+    },
+    "error": null
+  },
+  {
+    "session_id": 9,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 18311,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 10,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 19200,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 11,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 18748,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 12,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 7194,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 13,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 6612,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 14,
+    "preview": false,
+    "transcript": {
+      "text": ".যখন অন্য সফ্রটিকগুলি গঠন-আক্রান্ত-পালিত পশুগুলোর মুত্র থেকে পাওয়াগুলির সাথে মিলে যায়, যখন অবলহীত বর্ণালী বিক্ষ",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ".যখন অন্য সফ্রটিকগুলি গঠন-আক্রান্ত-পালিত পশুগুলোর মুত্র থেকে পাওয়াগুলির সাথে মিলে যায়, যখন অবলহীত বর্ণালী বিক্ষ"
+        }
+      ],
+      "decode_ms": 19059,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 15,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 6859,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 16,
+    "preview": false,
+    "transcript": {
+      "text": ". পুলিশ সুপার চন্দ্র শেখর সোসকি জানিয়েছিলেন অভিযুক্তরা মুখ ঢাকা অবস্থায় আদালতে হাজির হয়েছিল।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ". পুলিশ সুপার চন্দ্র শেখর সোসকি জানিয়েছিলেন অভিযুক্তরা মুখ ঢাকা অবস্থায় আদালতে হাজির হয়েছিল।"
+        }
+      ],
+      "decode_ms": 6432,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 17,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 6872,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 18,
+    "preview": false,
+    "transcript": {
+      "text": "...এরও স্মিথ তাদের সফরের অবশিষ্ট কনসারগুলো বাতি করেছেন।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "...এরও স্মিথ তাদের সফরের অবশিষ্ট কনসারগুলো বাতি করেছেন।"
+        }
+      ],
+      "decode_ms": 5135,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 19,
+    "preview": false,
+    "transcript": null,
+    "error": "Model returned invalid text"
+  },
+  {
+    "session_id": 20,
+    "preview": false,
+    "transcript": {
+      "text": "যদি তুমি ন্যাশনাল ট্রেজার সিনেমাটি দেখে থাকও তুমি হয়তো ভাব্যে পারও যে সম্পদের মানচিত্র লেখা হয়েছিল স্বাধীনতা",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "যদি তুমি ন্যাশনাল ট্রেজার সিনেমাটি দেখে থাকও তুমি হয়তো ভাব্যে পারও যে সম্পদের মানচিত্র লেখা হয়েছিল স্বাধীনতা"
+        }
+      ],
+      "decode_ms": 21481,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 21,
+    "preview": false,
+    "transcript": {
+      "text": ". গরম চক্লেটির গুণমান বেলজিয়ামের চক্লেটের মতো হয়ে থাকে, হলের রস সাধারণত দামী হলেও দুর্দান্ত সাদের হয়ে থাকে।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ". গরম চক্লেটির গুণমান বেলজিয়ামের চক্লেটের মতো হয়ে থাকে, হলের রস সাধারণত দামী হলেও দুর্দান্ত সাদের হয়ে থাকে।"
+        }
+      ],
+      "decode_ms": 6341,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 22,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 18973,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 23,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 7070,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 24,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 19423,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 25,
+    "preview": false,
+    "transcript": {
+      "text": ".",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "."
+        }
+      ],
+      "decode_ms": 7593,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 26,
+    "preview": false,
+    "transcript": {
+      "text": ".তিনি যখন হাসপাতালে কাজ করছিলেন তখন লিগিন্স তাঁর অবসর সময়ে অকাল প্রশাপের তদন্ত শুরু তরেছিলেন।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ".তিনি যখন হাসপাতালে কাজ করছিলেন তখন লিগিন্স তাঁর অবসর সময়ে অকাল প্রশাপের তদন্ত শুরু তরেছিলেন।"
+        }
+      ],
+      "decode_ms": 8256,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 27,
+    "preview": false,
+    "transcript": {
+      "text": "দ্ডীতীয়স এটির প্রথমদিকে ডেলপট্র প্রধান্য পেয়েছিল, তবে ছয়বায় ছয়েই এ পৌস্থানের পরে এটির ক্ষেত্রেও টাইব রে",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "দ্ডীতীয়স এটির প্রথমদিকে ডেলপট্র প্রধান্য পেয়েছিল, তবে ছয়বায় ছয়েই এ পৌস্থানের পরে এটির ক্ষেত্রেও টাইব রে"
+        }
+      ],
+      "decode_ms": 20801,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 28,
+    "preview": false,
+    "transcript": {
+      "text": ". তবে এই পরিকল্পনাগুলি রাতারাতি বাতিল হয়ে যায় যখন সোভিয়েত ইউনিয়নের আট লাখ লালফৌজ ঋগ্রিকা শান্তিচুক্তি লগ্ঘন কর",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ". তবে এই পরিকল্পনাগুলি রাতারাতি বাতিল হয়ে যায় যখন সোভিয়েত ইউনিয়নের আট লাখ লালফৌজ ঋগ্রিকা শান্তিচুক্তি লগ্ঘন কর"
+        }
+      ],
+      "decode_ms": 20013,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 29,
+    "preview": false,
+    "transcript": {
+      "text": "-অক্টোবারে শুরু হওয়া ক্ষমতাবান্দের বিরুদ্ধে ব্যাপক বিক্ষোপে মার্টেলির প্রতিক্রিয়া হলো এই কমিশন।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": "-অক্টোবারে শুরু হওয়া ক্ষমতাবান্দের বিরুদ্ধে ব্যাপক বিক্ষোপে মার্টেলির প্রতিক্রিয়া হলো এই কমিশন।"
+        }
+      ],
+      "decode_ms": 7308,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  },
+  {
+    "session_id": 30,
+    "preview": false,
+    "transcript": {
+      "text": ".যদিও এটি সত্য নয়, তারপরও দোলিলের পিছনে কিছু লেখা আছে এটি কোন গুপ্তধনের মানচিত্র নয়।",
+      "segments": [
+        {
+          "start_ms": 0,
+          "end_ms": 30000,
+          "text": ".যদিও এটি সত্য নয়, তারপরও দোলিলের পিছনে কিছু লেখা আছে এটি কোন গুপ্তধনের মানচিত্র নয়।"
+        }
+      ],
+      "decode_ms": 6220,
+      "load_ms": 90,
+      "recognized_language": "bn",
+      "review_required": false,
+      "timing_reliable": false
+    },
+    "error": null
+  }
+]

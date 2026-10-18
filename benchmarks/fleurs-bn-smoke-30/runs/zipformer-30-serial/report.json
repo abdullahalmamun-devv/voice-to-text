@@ -1,0 +1,34 @@
+{
+  "count": 30,
+  "errors": 0,
+  "slices": {
+    "read_bn_in_smoke": {
+      "n": 30,
+      "errors": 0,
+      "raw_wer": 0.30307941653160453,
+      "normalized_wer": 0.1774193548387097,
+      "normalized_scalar_cer": 0.05375808860129418,
+      "unexpected_script": 0,
+      "silence_generated_text": 0,
+      "warm_request_p50_ms": 516,
+      "warm_request_p95_ms": 955,
+      "median_decode_rtf": 0.04019872727452668
+    }
+  },
+  "critical_entities": null,
+  "correction_burden": null,
+  "actual_insertions": null,
+  "configuration": {
+    "mode": "external research engine, not integrated into the desktop app",
+    "runtime": "sherpa-onnx 1.13.8 CPU; 2 threads; streaming zipformer2",
+    "decoder": "modified_beam_search, max_active_paths=4, endpoint detection OFF, no hotwords/LM",
+    "audio": "original samples plus fixed 0.5s zero tail; one fresh stream per clip; reusable recognizer",
+    "corpus_sha256": "70c16cf52dd141c4e6d1e8aad4f0b0caa709c1a478acd963f469c5de6f14b82c",
+    "model_manifest_sha256": "fd6f1890c6005986c3f1beb081e8fa865f2138c133ad7bc4fc7dce5fa8fb40b5",
+    "runner_sha256": "e5e59c49079e76edae7a587d01ff9c25527370efa52ba598a99143b5e7a48f01",
+    "numpy_version": "2.3.5",
+    "normalization": "NFC + Unicode punctuation to spaces + whitespace; no digit/spelling rewriting",
+    "qualified_default": false,
+    "recognizer_load_ms": 609
+  }
+}

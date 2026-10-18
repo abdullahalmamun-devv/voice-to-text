@@ -1,0 +1,4 @@
+﻿id,slice,error,cold,request_wall_ms,audio_seconds,decode_ms,decode_rtf,raw_word_edits,raw_words,normalized_word_edits,normalized_words,character_edits,characters,review_required,recognized_language,reference,hypothesis
+fleurs-bn-test-10012315972427481934,read_bn_in_smoke,TimeoutError,True,180036,16.2,,,23,23,23,23,149,149,,,"জার্মানির অনেক বেক করা খাবারগুলিতে বাদাম, হ্যাজনেলট এবং অন্যান্য বাদামের উপাদান পাওয়া যায়। পছন্দের কেকগুলি প্রায়শই একটি কাপ ভরা কফির সাথে ভাল মানায়।",
+fleurs-bn-test-10025278611427771211,read_bn_in_smoke,TimeoutError,True,180069,10.44,,,16,16,17,17,83,83,,,একজন শুধুমাত্র আশ্চর্য হতে পারে এই ভেবে যে যখন নতুন কিছু আসে তখন কী-বোর্ড কীরকম হবে।,
+fleurs-bn-test-10059008353469041076,read_bn_in_smoke,TimeoutError,True,180032,14.58,,,23,23,23,23,169,169,,,হাইতিয়ান ইনস্টিটিউট ফর জাস্টিস অ্যান্ড ডেমোক্রেসি এর স্বতন্ত্র সমীক্ষাতে উল্লেখ করা হয়েছে যে নেপালি জাতিসংঘের শান্তিরক্ষা বাহিনী অজান্তেই হাইতিতে এই রোগটি নিয়ে এসেছিল।,

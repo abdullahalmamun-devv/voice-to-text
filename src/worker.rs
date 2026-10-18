@@ -14,6 +14,8 @@ pub struct Request {
     pub samples: Vec<f32>,
     #[serde(default)]
     pub wav_path: Option<String>,
+    #[serde(default)]
+    pub no_timestamps: bool,
     pub language: String,
     pub prompt: String,
     pub preview: bool,
@@ -63,12 +65,16 @@ pub fn serve() -> Result<(), String> {
             } else {
                 &req.samples
             };
-            engine.as_ref().ok_or("Model unavailable")?.transcribe(
-                samples,
-                &req.language,
-                &req.prompt,
-                req.preview,
-            )
+            engine
+                .as_ref()
+                .ok_or("Model unavailable")?
+                .transcribe_profile(
+                    samples,
+                    &req.language,
+                    &req.prompt,
+                    req.preview,
+                    req.no_timestamps,
+                )
         })();
         let response = match result {
             Ok(t) => Response {
@@ -205,5 +211,21 @@ impl Default for Worker {
 impl Drop for Worker {
     fn drop(&mut self) {
         self.cancel();
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn older_requests_keep_timestamps_and_ablation_is_explicit() {
+        let old = r#"{"session_id":1,"model":"local.bin","samples":[],"language":"bn","prompt":"","preview":false}"#;
+        let request: Request = serde_json::from_str(old).unwrap();
+        assert!(!request.no_timestamps);
+        let mut value: serde_json::Value = serde_json::from_str(old).unwrap();
+        value["no_timestamps"] = true.into();
+        let request: Request = serde_json::from_value(value).unwrap();
+        assert!(request.no_timestamps);
     }
 }

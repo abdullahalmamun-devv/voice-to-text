@@ -1,0 +1,13 @@
+{
+  "model_id": "whisper-small-banglaasr-q5_1-experimental",
+  "sha256": "9eb69c950bdabdae9cb5a10f169f8bda11fb30333e38f300a22dfb5c0b96ffa3",
+  "size_bytes": 190085487,
+  "source": "https://huggingface.co/bangla-speech-processing/BanglaASR/tree/89c3a1b9585be48d9527cd8964c150fe2eebdbaa",
+  "license": "MIT (upstream model card); OpenAI Whisper base MIT",
+  "runtime": "whisper-rs 0.15.1 / whisper-rs-sys 0.14.1 / whisper.cpp 1.7.6 CPU",
+  "evaluated": false,
+  "qualified_default": false,
+  "source_safetensors_sha256": "66ce5ed8464509bf11957b442f7724c9cdf5c7d612926c2c19f36c9f5bbe2e53",
+  "conversion": "offline safetensors numpy -> GGML F16 (479 tensors; original 50257 tokenizer IDs verified) -> pinned whisper.cpp v1.7.6 q5_1 quantizer",
+  "f16_sha256": "d1f734f080357468e6b6c41ee6a6b0b6a8804c637de69be3df0173197ea23c9b"
+}
