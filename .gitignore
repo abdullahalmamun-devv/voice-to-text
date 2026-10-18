@@ -1,0 +1,14 @@
+/target/
+/build-*/
+/dist/
+/bin/
+/models/*.bin
+*.exe
+*.dll
+__pycache__/
+*.pyc
+.env
+.env.*
+/corpus/
+/recordings/
+/private-audio/

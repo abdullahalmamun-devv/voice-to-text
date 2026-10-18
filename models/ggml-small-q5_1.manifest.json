@@ -1,0 +1,9 @@
+{
+  "model_id": "whisper-small-multilingual-q5_1",
+  "sha256": "ae85e4a935d7a567bd102fe55afc16bb595bdb618e11b2fc7591bc08120411bb",
+  "size_bytes": 190085487,
+  "source": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small-q5_1.bin",
+  "license": "MIT (OpenAI Whisper weights; see licenses/whisper-model-MIT.txt)",
+  "runtime": "whisper-rs 0.15.1 / whisper-rs-sys 0.14.1, CPU-only",
+  "evaluated": false
+}

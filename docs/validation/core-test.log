@@ -1,0 +1,64 @@
+    Blocking waiting for file lock on package cache
+warning: variable does not need to be mutable
+   --> vendor/whisper-rs-sys/build.rs:137:13
+    |
+137 |         let mut bindings = bindgen::Builder::default().header("wrapper.h");
+    |             ----^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: `whisper-rs-sys` (build script) generated 1 warning
+warning: unused import: `CStr`
+ --> vendor/whisper-rs/src/whisper_ctx_wrapper.rs:2:23
+  |
+2 | use std::ffi::{c_int, CStr};
+  |                       ^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `c_char`
+ --> vendor/whisper-rs/src/whisper_params.rs:3:16
+  |
+3 | use std::ffi::{c_char, c_float, c_int, CString};
+  |                ^^^^^^
+
+warning: `whisper-rs` (lib) generated 2 warnings (run `cargo fix --lib -p whisper-rs` to apply 2 suggestions)
+   Compiling voicetotext v0.2.0-alpha.1 (<workspace>/VoiceToText)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.73s
+     Running unittests src/lib.rs (<workspace>/build-host/debug/deps/voicetotext-38246f7fbc8e48f7)
+
+running 29 tests
+test engine::tests::fabricated_or_overlapping_timing_not_exported ... ok
+test audio::tests::malformed_audio_rejected ... ok
+test engine::tests::srt_uses_engine_timestamps ... ok
+test audio::tests::quiet_speech_retained ... ok
+test session::tests::cancelled_result_never_becomes_held ... ok
+test session::tests::duplicate_start_and_finish_rejected ... ok
+test model::tests::sha_matches_known_vector ... ok
+test session::tests::silence_returns_ready ... ok
+test audio::tests::silence_and_short_click_rejected ... ok
+test storage::tests::history_is_off_and_no_speech_file_created ... ok
+test storage::tests::invalid_schema_and_settings_rejected ... ok
+test storage::tests::unsafe_snippet_import_rejected ... ok
+test text::tests::alias_boundaries_and_no_chaining ... ok
+test storage::tests::expired_history_purged ... ok
+test storage::tests::corrupt_settings_not_silently_reset ... ok
+test storage::tests::opt_in_history_and_delete ... ok
+test text::tests::dictionary_conflicts_rejected ... ok
+test text::tests::editing_only_exact_bounded_commands ... ok
+test text::tests::explicit_commands_and_snippets ... ok
+test text::tests::code_switch_and_joiners_preserved ... ok
+test text::tests::literal_command_unchanged ... ok
+test text::tests::longest_alias_wins ... ok
+test text::tests::no_negation_or_repetition_rewrite ... ok
+test storage::tests::settings_roundtrip_and_backup ... ok
+test text::tests::unsafe_numbers_preserved ... ok
+test text::tests::preferred_digits_protected ... ok
+test text::tests::supported_amounts ... ok
+test model::tests::corrupt_and_script_models_rejected ... ok
+test audio::tests::stereo_resampling_duration_and_mix ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

@@ -1,0 +1,496 @@
+[
+  {
+    "name": "aho-corasick",
+    "version": "1.1.5",
+    "license": "Unlicense OR MIT",
+    "source_directory": "vendor/aho-corasick",
+    "license_files": [
+      "licenses/third-party/aho-corasick/COPYING",
+      "licenses/third-party/aho-corasick/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "bindgen",
+    "version": "0.71.1",
+    "license": "BSD-3-Clause",
+    "source_directory": "vendor/bindgen",
+    "license_files": [
+      "licenses/third-party/bindgen/LICENSE"
+    ]
+  },
+  {
+    "name": "bitflags",
+    "version": "2.13.2",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/bitflags",
+    "license_files": [
+      "licenses/third-party/bitflags/LICENSE-APACHE",
+      "licenses/third-party/bitflags/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "block-buffer",
+    "version": "0.10.4",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/block-buffer",
+    "license_files": [
+      "licenses/third-party/block-buffer/LICENSE-APACHE",
+      "licenses/third-party/block-buffer/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "cc",
+    "version": "1.8.0",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/cc",
+    "license_files": [
+      "licenses/third-party/cc/LICENSE-APACHE",
+      "licenses/third-party/cc/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "cexpr",
+    "version": "0.6.0",
+    "license": "Apache-2.0/MIT",
+    "source_directory": "vendor/cexpr",
+    "license_files": [
+      "licenses/third-party/cexpr/LICENSE-APACHE",
+      "licenses/third-party/cexpr/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "cfg-if",
+    "version": "1.0.5",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/cfg-if",
+    "license_files": [
+      "licenses/third-party/cfg-if/LICENSE-APACHE",
+      "licenses/third-party/cfg-if/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "clang-sys",
+    "version": "1.9.1",
+    "license": "Apache-2.0",
+    "source_directory": "vendor/clang-sys",
+    "license_files": [
+      "licenses/third-party/clang-sys/LICENSE.txt"
+    ]
+  },
+  {
+    "name": "cmake",
+    "version": "0.1.58",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/cmake",
+    "license_files": [
+      "licenses/third-party/cmake/LICENSE-APACHE",
+      "licenses/third-party/cmake/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "cpufeatures",
+    "version": "0.2.17",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/cpufeatures",
+    "license_files": [
+      "licenses/third-party/cpufeatures/LICENSE-APACHE",
+      "licenses/third-party/cpufeatures/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "crypto-common",
+    "version": "0.1.7",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/crypto-common",
+    "license_files": [
+      "licenses/third-party/crypto-common/LICENSE-APACHE",
+      "licenses/third-party/crypto-common/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "digest",
+    "version": "0.10.7",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/digest",
+    "license_files": [
+      "licenses/third-party/digest/LICENSE-APACHE",
+      "licenses/third-party/digest/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "either",
+    "version": "1.19.0",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/either",
+    "license_files": [
+      "licenses/third-party/either/LICENSE-APACHE",
+      "licenses/third-party/either/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "find-msvc-tools",
+    "version": "0.1.14",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/find-msvc-tools",
+    "license_files": [
+      "licenses/third-party/find-msvc-tools/LICENSE-APACHE",
+      "licenses/third-party/find-msvc-tools/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "fs_extra",
+    "version": "1.3.0",
+    "license": "MIT",
+    "source_directory": "vendor/fs_extra",
+    "license_files": [
+      "licenses/third-party/fs_extra/LICENSE"
+    ]
+  },
+  {
+    "name": "generic-array",
+    "version": "0.14.7",
+    "license": "MIT",
+    "source_directory": "vendor/generic-array",
+    "license_files": [
+      "licenses/third-party/generic-array/LICENSE"
+    ]
+  },
+  {
+    "name": "glob",
+    "version": "0.3.4",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/glob",
+    "license_files": [
+      "licenses/third-party/glob/LICENSE-APACHE",
+      "licenses/third-party/glob/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "hound",
+    "version": "3.5.1",
+    "license": "Apache-2.0",
+    "source_directory": "vendor/hound",
+    "license_files": [
+      "licenses/third-party/hound/license"
+    ]
+  },
+  {
+    "name": "itertools",
+    "version": "0.13.0",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/itertools",
+    "license_files": [
+      "licenses/third-party/itertools/LICENSE-APACHE",
+      "licenses/third-party/itertools/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "itoa",
+    "version": "1.0.18",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/itoa",
+    "license_files": [
+      "licenses/third-party/itoa/LICENSE-APACHE",
+      "licenses/third-party/itoa/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "libc",
+    "version": "0.2.190",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/libc",
+    "license_files": [
+      "licenses/third-party/libc/LICENSE-APACHE",
+      "licenses/third-party/libc/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "libloading",
+    "version": "0.8.9",
+    "license": "ISC",
+    "source_directory": "vendor/libloading",
+    "license_files": [
+      "licenses/third-party/libloading/LICENSE"
+    ]
+  },
+  {
+    "name": "log",
+    "version": "0.4.34",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/log",
+    "license_files": [
+      "licenses/third-party/log/LICENSE-APACHE",
+      "licenses/third-party/log/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "memchr",
+    "version": "2.8.3",
+    "license": "Unlicense OR MIT",
+    "source_directory": "vendor/memchr",
+    "license_files": [
+      "licenses/third-party/memchr/COPYING",
+      "licenses/third-party/memchr/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "minimal-lexical",
+    "version": "0.2.1",
+    "license": "MIT/Apache-2.0",
+    "source_directory": "vendor/minimal-lexical",
+    "license_files": [
+      "licenses/third-party/minimal-lexical/LICENSE-APACHE",
+      "licenses/third-party/minimal-lexical/LICENSE-MIT",
+      "licenses/third-party/minimal-lexical/LICENSE.md"
+    ]
+  },
+  {
+    "name": "nom",
+    "version": "7.1.3",
+    "license": "MIT",
+    "source_directory": "vendor/nom",
+    "license_files": [
+      "licenses/third-party/nom/LICENSE"
+    ]
+  },
+  {
+    "name": "prettyplease",
+    "version": "0.2.37",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/prettyplease",
+    "license_files": [
+      "licenses/third-party/prettyplease/LICENSE-APACHE",
+      "licenses/third-party/prettyplease/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "proc-macro2",
+    "version": "1.0.107",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/proc-macro2",
+    "license_files": [
+      "licenses/third-party/proc-macro2/LICENSE-APACHE",
+      "licenses/third-party/proc-macro2/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "quote",
+    "version": "1.0.47",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/quote",
+    "license_files": [
+      "licenses/third-party/quote/LICENSE-APACHE",
+      "licenses/third-party/quote/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "regex",
+    "version": "1.13.1",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/regex",
+    "license_files": [
+      "licenses/third-party/regex/LICENSE-APACHE",
+      "licenses/third-party/regex/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "regex-automata",
+    "version": "0.4.18",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/regex-automata",
+    "license_files": [
+      "licenses/third-party/regex-automata/LICENSE-APACHE",
+      "licenses/third-party/regex-automata/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "regex-syntax",
+    "version": "0.8.11",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/regex-syntax",
+    "license_files": [
+      "licenses/third-party/regex-syntax/LICENSE-APACHE",
+      "licenses/third-party/regex-syntax/LICENSE-MIT",
+      "licenses/third-party/regex-syntax/src/unicode_tables/LICENSE-UNICODE"
+    ]
+  },
+  {
+    "name": "rustc-hash",
+    "version": "2.1.3",
+    "license": "Apache-2.0 OR MIT",
+    "source_directory": "vendor/rustc-hash",
+    "license_files": [
+      "licenses/third-party/rustc-hash/LICENSE-APACHE",
+      "licenses/third-party/rustc-hash/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "serde",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/serde",
+    "license_files": [
+      "licenses/third-party/serde/LICENSE-APACHE",
+      "licenses/third-party/serde/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "serde_core",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/serde_core",
+    "license_files": [
+      "licenses/third-party/serde_core/LICENSE-APACHE",
+      "licenses/third-party/serde_core/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "serde_derive",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/serde_derive",
+    "license_files": [
+      "licenses/third-party/serde_derive/LICENSE-APACHE",
+      "licenses/third-party/serde_derive/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "serde_json",
+    "version": "1.0.154",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/serde_json",
+    "license_files": [
+      "licenses/third-party/serde_json/LICENSE-APACHE",
+      "licenses/third-party/serde_json/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "sha2",
+    "version": "0.10.9",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/sha2",
+    "license_files": [
+      "licenses/third-party/sha2/LICENSE-APACHE",
+      "licenses/third-party/sha2/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "shlex",
+    "version": "2.0.1",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/shlex",
+    "license_files": [
+      "licenses/third-party/shlex/LICENSE-APACHE",
+      "licenses/third-party/shlex/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "shlex",
+    "version": "1.3.0",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/shlex-1.3.0",
+    "license_files": [
+      "licenses/third-party/shlex-1.3.0/LICENSE-APACHE",
+      "licenses/third-party/shlex-1.3.0/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "syn",
+    "version": "3.0.8",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/syn",
+    "license_files": [
+      "licenses/third-party/syn/LICENSE-APACHE",
+      "licenses/third-party/syn/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "syn",
+    "version": "2.0.119",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/syn-2.0.119",
+    "license_files": [
+      "licenses/third-party/syn-2.0.119/LICENSE-APACHE",
+      "licenses/third-party/syn-2.0.119/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "typenum",
+    "version": "1.20.1",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/typenum",
+    "license_files": [
+      "licenses/third-party/typenum/LICENSE",
+      "licenses/third-party/typenum/LICENSE-APACHE",
+      "licenses/third-party/typenum/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "unicode-ident",
+    "version": "1.0.26",
+    "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+    "source_directory": "vendor/unicode-ident",
+    "license_files": [
+      "licenses/third-party/unicode-ident/LICENSE-APACHE",
+      "licenses/third-party/unicode-ident/LICENSE-MIT",
+      "licenses/third-party/unicode-ident/LICENSE-UNICODE"
+    ]
+  },
+  {
+    "name": "version_check",
+    "version": "0.9.5",
+    "license": "MIT/Apache-2.0",
+    "source_directory": "vendor/version_check",
+    "license_files": [
+      "licenses/third-party/version_check/LICENSE-APACHE",
+      "licenses/third-party/version_check/LICENSE-MIT"
+    ]
+  },
+  {
+    "name": "whisper-rs",
+    "version": "0.15.1",
+    "license": "Unlicense",
+    "source_directory": "vendor/whisper-rs",
+    "license_files": [
+      "licenses/third-party/whisper-rs/LICENSE"
+    ]
+  },
+  {
+    "name": "whisper-rs-sys",
+    "version": "0.14.1",
+    "license": "Unlicense",
+    "source_directory": "vendor/whisper-rs-sys",
+    "license_files": [
+      "licenses/third-party/whisper-rs-sys/whisper.cpp/LICENSE"
+    ]
+  },
+  {
+    "name": "windows-link",
+    "version": "0.2.1",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/windows-link",
+    "license_files": [
+      "licenses/third-party/windows-link/license-apache-2.0",
+      "licenses/third-party/windows-link/license-mit"
+    ]
+  },
+  {
+    "name": "windows-sys",
+    "version": "0.61.2",
+    "license": "MIT OR Apache-2.0",
+    "source_directory": "vendor/windows-sys",
+    "license_files": [
+      "licenses/third-party/windows-sys/license-apache-2.0",
+      "licenses/third-party/windows-sys/license-mit"
+    ]
+  },
+  {
+    "name": "zmij",
+    "version": "1.0.23",
+    "license": "MIT",
+    "source_directory": "vendor/zmij",
+    "license_files": [
+      "licenses/third-party/zmij/LICENSE-MIT"
+    ]
+  }
+]

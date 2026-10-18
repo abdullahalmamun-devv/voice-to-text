@@ -1,0 +1,30 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+warning: variable does not need to be mutable
+   --> vendor/whisper-rs-sys/build.rs:137:13
+    |
+137 |         let mut bindings = bindgen::Builder::default().header("wrapper.h");
+    |             ----^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: `whisper-rs-sys` (build script) generated 1 warning
+warning: unused import: `CStr`
+ --> vendor/whisper-rs/src/whisper_ctx_wrapper.rs:2:23
+  |
+2 | use std::ffi::{c_int, CStr};
+  |                       ^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `c_char`
+ --> vendor/whisper-rs/src/whisper_params.rs:3:16
+  |
+3 | use std::ffi::{c_char, c_float, c_int, CString};
+  |                ^^^^^^
+
+warning: `whisper-rs` (lib) generated 2 warnings (run `cargo fix --lib -p whisper-rs` to apply 2 suggestions)
+   Compiling voicetotext v0.2.0-alpha.1 (<workspace>/VoiceToText)
+    Finished `release` profile [optimized] target(s) in 5.37s
