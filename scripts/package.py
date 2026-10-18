@@ -8,9 +8,10 @@ from pathlib import Path
 import shutil
 import sys
 import zipfile
+import tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "0.2.0-alpha.1"
+VERSION = tomllib.loads((ROOT / "Cargo.toml").read_text())["package"]["version"]
 
 
 def digest(path):
@@ -41,7 +42,7 @@ def main():
         if folder.exists():
             shutil.rmtree(folder)
         folder.mkdir()
-        for name in ("README.md", "START-HERE.md", "LICENSE"):
+        for name in ("README.md", "START-HERE.md", "LICENSE", "PRIVACY.md", "SECURITY.md", "CONTRIBUTING.md", "CHANGELOG.md"):
             shutil.copy2(ROOT / name, folder / name)
         for name in ("docs", "licenses"):
             shutil.copytree(ROOT / name, folder / name)
@@ -55,7 +56,7 @@ def main():
     files = [{"path": str(f.relative_to(win)).replace("\\", "/"), "size_bytes": f.stat().st_size,
               "sha256": digest(f)} for f in sorted(win.rglob("*")) if f.is_file()]
     (win / "package-manifest.json").write_text(json.dumps({"version": VERSION, "files": files}, indent=2))
-    for name in ("src", "vendor", ".cargo", "assets", "scripts"):
+    for name in ("src", "vendor", ".cargo", ".github", "assets", "scripts"):
         shutil.copytree(ROOT / name, source / name, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     for name in ("Cargo.toml", "Cargo.lock", "rust-toolchain.toml", "build.rs"):
         shutil.copy2(ROOT / name, source / name)

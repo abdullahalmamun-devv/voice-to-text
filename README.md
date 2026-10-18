@@ -1,8 +1,14 @@
 # VoiceToText — Offline Bangla Dictation
 
-Version: **0.2.0-alpha.1** · Windows 11 x64 desktop · MIT application source.
+Version: **0.2.0-alpha.2 (development)** · Windows 11 x64 desktop · MIT application source.
 
 This build combines the PRD's V1 core with optional V2 features in one native Windows application. It is an engineering alpha, **not a PRD-complete stable release**. No Bengali accuracy percentage or universal application compatibility is claimed. Read [START-HERE.md](START-HERE.md) for installation and [docs/REQUIREMENTS-STATUS.md](docs/REQUIREMENTS-STATUS.md) for remaining implementation and validation work.
+
+## Current checkpoint
+
+Source is public at https://github.com/abdullahalmamun-devv/voice-to-text. See CHANGELOG.md, docs/PROJECT-STATUS.md and the exact commit's workflow status. Alpha.2 restores cancellable WAV reads, anti-alias filtering, script-mismatch review, audio-bound SRT timing and targeted native insertion/Undo. Browser/custom controls still require Copy.
+
+No Bengali model has qualified for a stable release. The Small pack bundled in the older alpha.1 archive is an unevaluated candidate. Earlier wrong-script exploratory results block recommending it as a production default; a controlled Small/Turbo comparison is still needed. CI app-only artifacts contain no model and do not constitute a full offline installer.
 
 ## Included
 
@@ -19,7 +25,7 @@ History, live draft, voice commands and startup are off by default. Review is on
 
 The Windows archive contains the executable, multilingual model, notices, guide and checksum manifest. Extract the whole archive before running `VoiceToText.exe`; Python, Rust and CMake are not user runtime requirements. The source archive contains vendored build dependencies but excludes the model weights; copy `models/` from the Windows package when developing.
 
-The Linux binary supplied under `bin/` in the source archive is a tested local CLI/worker, **not a Linux desktop application**. macOS and Linux desktop adapters are not implemented. No binaries have been signed or published to a public repository/store.
+The Linux binary supplied under `bin/` in the source archive is a tested local CLI/worker, **not a Linux desktop application**. macOS and Linux desktop adapters are not implemented. No stable or signed binaries are published.
 
 ## Development
 

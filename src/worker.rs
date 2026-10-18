@@ -12,6 +12,8 @@ pub struct Request {
     pub session_id: u64,
     pub model: String,
     pub samples: Vec<f32>,
+    #[serde(default)]
+    pub wav_path: Option<String>,
     pub language: String,
     pub prompt: String,
     pub preview: bool,
@@ -51,8 +53,18 @@ pub fn serve() -> Result<(), String> {
                 engine = Some(fresh);
                 loaded = req.model.clone();
             }
+            let file_samples;
+            let samples = if let Some(path) = &req.wav_path {
+                if !req.samples.is_empty() {
+                    return Err("Choose WAV or samples, not both".into());
+                }
+                file_samples = crate::audio::read_wav(Path::new(path))?;
+                &file_samples
+            } else {
+                &req.samples
+            };
             engine.as_ref().ok_or("Model unavailable")?.transcribe(
-                &req.samples,
+                samples,
                 &req.language,
                 &req.prompt,
                 req.preview,

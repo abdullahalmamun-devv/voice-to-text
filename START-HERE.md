@@ -1,3 +1,5 @@
+> Development checkpoint: source is published on GitHub. Alpha.2 is not stable. The older full offline package is alpha.1; CI app-only artifacts contain no model. Read docs/PROJECT-STATUS.md before use.
+
 # VoiceToText চালানোর গাইড
 
 **0.2.0-alpha.1 — Windows 11 x64।** V1 ও V2-এর ফিচার একই অ্যাপে আছে। এটি পরীক্ষামূলক alpha; PRD-এর stable release acceptance এখনও সম্পূর্ণ পাস করেনি। Browser-এ সরাসরি লেখা বসানোর adapter এবং বাস্তব Windows/Bangla QA বাকি। লেখা ব্যবহারের আগে যাচাই করুন।

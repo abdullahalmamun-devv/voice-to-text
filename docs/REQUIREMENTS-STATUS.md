@@ -1,3 +1,5 @@
+> Historical alpha.1 matrix. Alpha.2 changes are in CHANGELOG.md and PROJECT-STATUS.md; stable PRD gates remain open.
+
 # PRD implementation and release status
 
 Status recorded 2026-10-11 for 0.2.0-alpha.1. “Implemented” means present in source and, where indicated, core-tested; it does not mean Windows runtime acceptance. The supplied PRD remains authoritative. V1 and V2 feature groups share one build; V2 opt-ins default off.

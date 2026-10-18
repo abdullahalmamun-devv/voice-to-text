@@ -17,6 +17,12 @@ pub struct Transcript {
     pub segments: Vec<Segment>,
     pub decode_ms: u64,
     pub load_ms: u64,
+    #[serde(default)]
+    pub recognized_language: Option<String>,
+    #[serde(default)]
+    pub review_required: bool,
+    #[serde(default)]
+    pub timing_reliable: bool,
 }
 pub struct Engine {
     context: WhisperContext,
@@ -26,25 +32,10 @@ impl Engine {
     pub fn load(path: &Path) -> Result<Self, String> {
         model::verify(path)?;
         let start = Instant::now();
-        #[cfg(not(all(windows, target_env = "gnu")))]
         let loaded = WhisperContext::new_with_params(
             path.to_str().ok_or("Model path is not valid UTF-8")?,
             WhisperContextParameters::default(),
         );
-        // Upstream's GNU Windows file loader uses narrow paths. Buffer loading
-        // preserves Bengali profile/package paths without changing the decoder.
-        #[cfg(all(windows, target_env = "gnu"))]
-        let loaded = {
-            use std::io::Read;
-            let mut file = std::fs::File::open(path).map_err(|e| e.to_string())?;
-            let size = file.metadata().map_err(|e| e.to_string())?.len() as usize;
-            let mut bytes = Vec::new();
-            bytes
-                .try_reserve_exact(size)
-                .map_err(|_| "Not enough memory to read the local model")?;
-            file.read_to_end(&mut bytes).map_err(|e| e.to_string())?;
-            WhisperContext::new_from_buffer_with_params(&bytes, WhisperContextParameters::default())
-        };
         let ctx = loaded
             .map_err(|_| "Model could not be loaded. Check model format and available memory.")?;
         Ok(Self {
@@ -103,7 +94,7 @@ impl Engine {
         params.set_suppress_blank(true);
         params.set_suppress_nst(true);
         params.set_temperature(0.);
-        params.set_temperature_inc(0.);
+        params.set_temperature_inc(if preview { 0. } else { 0.2 });
         if !prompt.is_empty() {
             params.set_initial_prompt(prompt);
         }
@@ -136,13 +127,31 @@ impl Engine {
             .map(|s| s.text.as_str())
             .collect::<Vec<_>>()
             .join(" ");
+        let recognized_language =
+            whisper_rs::get_lang_str(state.full_lang_id_from_state()).map(str::to_string);
+        let review_required = crate::text::unexpected_script(&text, language);
+        let timing_reliable = reliable_timing(&segments, samples.len() as u64 * 1000 / 16000);
         Ok(Transcript {
+            recognized_language,
+            review_required,
+            timing_reliable,
             text,
             segments,
             decode_ms: start.elapsed().as_millis() as u64,
             load_ms: self.load_ms,
         })
     }
+}
+pub fn reliable_timing(segments: &[Segment], audio_ms: u64) -> bool {
+    let mut last = 0;
+    !segments.is_empty()
+        && segments.iter().all(|s| {
+            let valid = s.start_ms >= last
+                && s.end_ms > s.start_ms
+                && s.end_ms <= audio_ms.saturating_add(100);
+            last = s.end_ms;
+            valid
+        })
 }
 pub fn srt(segments: &[Segment]) -> Result<String, String> {
     if segments.is_empty() {
@@ -196,5 +205,22 @@ mod tests {
             text: "x".into()
         }])
         .is_err());
+    }
+}
+
+#[cfg(test)]
+mod timing_tests {
+    use super::*;
+    #[test]
+    fn times_beyond_audio_are_not_exportable() {
+        let segment = |end_ms| Segment {
+            start_ms: 0,
+            end_ms,
+            text: "বাংলা".into(),
+        };
+        assert!(!reliable_timing(&[segment(30000)], 10000));
+        assert!(reliable_timing(&[segment(10000)], 10000));
+        assert!(!reliable_timing(&[segment(0)], 10000));
+        assert!(!reliable_timing(&[], 10000));
     }
 }

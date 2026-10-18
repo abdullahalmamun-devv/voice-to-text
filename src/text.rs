@@ -403,3 +403,30 @@ mod tests {
         assert_eq!(edit_owned("abc", "শেষ শব্দ মুছুন কথাটা লিখুন"), None);
     }
 }
+
+/// A flag holds automatic insertion. Its absence is not an accuracy guarantee.
+pub fn unexpected_script(text: &str, language: &str) -> bool {
+    if language == "auto" {
+        return false;
+    }
+    text.chars().filter(|c| c.is_alphanumeric()).any(|c| {
+        let n = c as u32;
+        let latin = c.is_ascii_alphanumeric()
+            || (0x00c0..=0x024f).contains(&n)
+            || (0x1e00..=0x1eff).contains(&n);
+        let bengali = (0x0980..=0x09ff).contains(&n);
+        !(latin || language == "bn" && bengali)
+    })
+}
+#[cfg(test)]
+mod script_tests {
+    use super::*;
+    #[test]
+    fn mismatched_script_held_without_rewriting() {
+        assert!(!unexpected_script("বাংলা client ১২৩ 🙂", "bn"));
+        assert!(unexpected_script("తెలుగు", "bn"));
+        assert!(unexpected_script("বাংলা", "en"));
+        assert!(!unexpected_script("café 123", "en"));
+        assert!(!unexpected_script("తెలుగు", "auto"));
+    }
+}
