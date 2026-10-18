@@ -16,6 +16,9 @@ pub struct Manifest {
     pub evaluated: bool,
 }
 pub fn inspect(path: &Path) -> Result<u64, String> {
+    if crate::model_pack::is_pack(path) {
+        return crate::model_pack::inspect(path);
+    }
     let mut f = File::open(path).map_err(|_| "Model file could not be opened")?;
     let n = f.metadata().map_err(|e| e.to_string())?.len();
     if !(1_000_000..=4_000_000_000).contains(&n) {
@@ -49,6 +52,10 @@ pub fn hash(path: &Path) -> Result<String, String> {
     Ok(format!("{:x}", sha.finalize()))
 }
 pub fn verify(path: &Path) -> Result<(), String> {
+    if crate::model_pack::is_pack(path) {
+        crate::model_pack::verify(path)?;
+        return Ok(());
+    }
     inspect(path)?;
     let manifest = path.with_extension("manifest.json");
     if manifest.exists() {

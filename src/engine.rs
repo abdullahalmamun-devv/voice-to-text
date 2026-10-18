@@ -25,13 +25,27 @@ pub struct Transcript {
     pub timing_reliable: bool,
     #[serde(default)]
     pub no_timestamps: bool,
+    #[serde(default)]
+    pub experimental_model: bool,
+}
+enum Backend {
+    Whisper(WhisperContext),
+    Zipformer(Box<crate::zipformer::Zipformer>),
 }
 pub struct Engine {
-    context: WhisperContext,
+    backend: Backend,
     pub load_ms: u64,
 }
 impl Engine {
     pub fn load(path: &Path) -> Result<Self, String> {
+        if crate::model_pack::is_pack(path) {
+            let start = Instant::now();
+            let native = crate::zipformer::Zipformer::load(path)?;
+            return Ok(Self {
+                backend: Backend::Zipformer(Box::new(native)),
+                load_ms: start.elapsed().as_millis() as u64,
+            });
+        }
         model::verify(path)?;
         let start = Instant::now();
         let loaded = WhisperContext::new_with_params(
@@ -41,7 +55,7 @@ impl Engine {
         let ctx = loaded
             .map_err(|_| "Model could not be loaded. Check model format and available memory.")?;
         Ok(Self {
-            context: ctx,
+            backend: Backend::Whisper(ctx),
             load_ms: start.elapsed().as_millis() as u64,
         })
     }
@@ -73,13 +87,19 @@ impl Engine {
         }
         if !speech_energy(samples) {
             return Ok(Transcript {
-                no_timestamps,
+                no_timestamps: no_timestamps || matches!(self.backend, Backend::Zipformer(_)),
+                experimental_model: matches!(self.backend, Backend::Zipformer(_)),
                 ..Transcript::default()
             });
         }
+        let context = match &self.backend {
+            Backend::Zipformer(native) => {
+                return native.transcribe(samples, language, prompt, self.load_ms)
+            }
+            Backend::Whisper(context) => context,
+        };
         let start = Instant::now();
-        let mut state = self
-            .context
+        let mut state = context
             .create_state()
             .map_err(|_| "Could not allocate inference state")?;
         let mut params = FullParams::new(if preview {
@@ -149,6 +169,7 @@ impl Engine {
         let timing_reliable =
             !no_timestamps && reliable_timing(&segments, samples.len() as u64 * 1000 / 16000);
         Ok(Transcript {
+            experimental_model: false,
             no_timestamps,
             recognized_language,
             review_required,

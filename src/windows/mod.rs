@@ -978,7 +978,11 @@ impl App {
                     if let Err(e) = storage::append_history(&self.dir, &self.settings, &output) {
                         self.status(&format!("Result ready; history could not save: {e}"));
                     }
-                    if !self.settings.review && !edited && !self.transcript.review_required {
+                    if !self.settings.review
+                        && !edited
+                        && !self.transcript.review_required
+                        && !self.transcript.experimental_model
+                    {
                         self.try_insert();
                     } else {
                         ShowWindow(self.window, SW_SHOW);
@@ -1227,7 +1231,7 @@ impl App {
                 if let Some(p) = file_dialog(
                     self.window,
                     false,
-                    "Whisper multilingual GGML\0*.bin\0\0",
+                    "Local speech model\0*.bin;*.vtt-model.json\0\0",
                     "bin",
                 ) {
                     match model::inspect(&p) {
