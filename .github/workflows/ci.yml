@@ -1,0 +1,59 @@
+name: Build and regression checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-24.04
+    env:
+      WHISPER_DONT_GENERATE_BINDINGS: '1'
+      CARGO_BUILD_JOBS: '4'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - run: rustup toolchain install 1.85.1 --profile minimal --component rustfmt,clippy
+      - run: python3 -m pip install cmake==3.31.6
+      - run: python3 scripts/verify-vendor.py
+      - run: cargo fmt --check
+      - run: cargo test --offline --locked --lib
+      - run: cargo clippy --offline --locked --all-targets --no-deps -- -D warnings
+      - run: python3 -m unittest discover -s scripts -p 'test_*.py'
+  windows:
+    runs-on: windows-2022
+    env:
+      CARGO_BUILD_JOBS: '4'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - run: rustup toolchain install 1.85.1 --profile minimal
+      - run: python -m pip install cmake==3.31.6
+      - run: python scripts/verify-vendor.py
+      - name: Test and build with the Windows SDK
+        shell: cmd
+        run: |
+          for /f "usebackq tokens=*" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath`) do call "%%i\VC\Auxiliary\Build\vcvars64.bat"
+          set LIBCLANG_PATH=C:\Program Files\LLVM\bin
+          cargo test --offline --locked --lib
+          if errorlevel 1 exit /b 1
+          cargo test --offline --locked --bin voicetotext --no-run
+          if errorlevel 1 exit /b 1
+          cargo build --offline --locked --release
+          if errorlevel 1 exit /b 1
+          dumpbin /dependents target\release\voicetotext.exe > windows-imports.txt
+          if errorlevel 1 exit /b 1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: Windows-app-only-alpha
+          path: |
+            target/release/voicetotext.exe
+            windows-imports.txt
+          if-no-files-found: error

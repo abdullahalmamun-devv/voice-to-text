@@ -80,6 +80,7 @@ struct App {
     confirm_at: Option<Instant>,
     transcript: Transcript,
     last_audio: Vec<f32>,
+    last_wav: Option<String>,
     previous_result: String,
     started: Instant,
     last_preview: Instant,
@@ -766,6 +767,7 @@ impl App {
         self.undo_pending = false;
         self.transcript = Transcript::default();
         self.last_audio.clear();
+        self.last_wav = None;
         self.pending = None;
         let index = self.index(10);
         let device = self.devices.get(index).map(|x| x.0).unwrap_or(u32::MAX);
@@ -805,6 +807,7 @@ impl App {
             session_id: self.session.id,
             model: self.settings.model_path.clone(),
             samples,
+            wav_path: if preview { None } else { self.last_wav.clone() },
             language: self.settings.language.clone(),
             prompt: text::prompt(&self.settings.entries),
             preview,
@@ -830,6 +833,7 @@ impl App {
         self.worker.cancel();
         self.pending = None;
         self.last_audio.clear();
+        self.last_wav = None;
         self.previous_result.clear();
         self.target = None;
         self.undo = None;
@@ -973,7 +977,7 @@ impl App {
                     if let Err(e) = storage::append_history(&self.dir, &self.settings, &output) {
                         self.status(&format!("Result ready; history could not save: {e}"));
                     }
-                    if !self.settings.review && !edited {
+                    if !self.settings.review && !edited && !self.transcript.review_required {
                         self.try_insert();
                     } else {
                         ShowWindow(self.window, SW_SHOW);
@@ -996,7 +1000,7 @@ impl App {
                 } else {
                     "Undo unconfirmed. Check the field; no repeated keystrokes will be sent."
                 });
-            } else if self.undo.as_ref().is_some_and(|u| insertion::confirm(u)) {
+            } else if self.undo.as_mut().is_some_and(|u| insertion::confirm(u)) {
                 self.session.phase = Phase::Ready;
                 self.status("লেখা বসানো হয়েছে।");
             } else {
@@ -1084,7 +1088,8 @@ impl App {
             }
             storage::atomic_write(
                 &path,
-                format!("@echo off\r\nstart \"\" \"{exe}\" --hidden\r\n").as_bytes(),
+                format!("@echo off\r\nchcp 65001 >nul\r\nstart \"\" \"{exe}\" --hidden\r\n")
+                    .as_bytes(),
             )
         } else {
             if path.exists() {
@@ -1141,7 +1146,7 @@ impl App {
                 }
             }
             104 => {
-                if self.last_audio.is_empty() {
+                if self.last_audio.is_empty() && self.last_wav.is_none() {
                     self.status("No audio retained for Retry");
                     return;
                 }
@@ -1160,19 +1165,15 @@ impl App {
                     return;
                 }
                 if let Some(p) = file_dialog(self.window, false, "PCM WAV\0*.wav\0\0", "wav") {
-                    match audio::read_wav(&p) {
-                        Ok(samples) => {
-                            self.session.start().ok();
-                            self.session.stop().ok();
-                            self.last_audio = samples;
-                            self.target = None;
-                            self.pending = Some(self.request(self.last_audio.clone(), false));
-                            RegisterHotKey(self.window, CANCELKEY, MOD_NOREPEAT, VK_ESCAPE as u32);
-                            self.status("Local WAV transcription…");
-                            self.submit_pending();
-                        }
-                        Err(e) => self.status(&e),
-                    }
+                    self.last_wav = Some(p.to_string_lossy().into_owned());
+                    self.last_audio.clear();
+                    self.session.start().ok();
+                    self.session.stop().ok();
+                    self.target = None;
+                    self.pending = Some(self.request(Vec::new(), false));
+                    RegisterHotKey(self.window, CANCELKEY, MOD_NOREPEAT, VK_ESCAPE as u32);
+                    self.status("Local WAV transcription… Cancel remains available.");
+                    self.submit_pending();
                 }
             }
             200 => self.save_preferences(),
@@ -1436,6 +1437,12 @@ impl App {
             _ => ("Text\0*.txt\0\0", "txt"),
         };
         let content = if id == 107 {
+            if !self.transcript.timing_reliable {
+                self.status(
+                    "Segment times exceed audio bounds or are unreliable. Use TXT/Markdown.",
+                );
+                return;
+            }
             match engine::srt(&self.transcript.segments) {
                 Ok(s) => s,
                 Err(e) => {
@@ -1767,6 +1774,7 @@ pub fn run() -> Result<(), String> {
             confirm_at: None,
             transcript: Transcript::default(),
             last_audio: Vec::new(),
+            last_wav: None,
             previous_result: String::new(),
             started: now,
             last_preview: now,

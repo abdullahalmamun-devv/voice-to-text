@@ -11,3 +11,7 @@ Cargo.toml uses `[patch.crates-io]` path dependencies so the patches are actuall
 The speech decoder/weights are not fine-tuned and no accuracy patch is claimed. Vendored third-party license texts remain intact. Remaining upstream build warnings about unused imports/mutability are not product errors.
 
 App-level adapter: GNU Windows reads model bytes via Rust and initializes context from a buffer, avoiding the upstream narrow-path loader on that target. Non-GNU platforms retain the upstream file loader. `scripts/mingw-compat.h` and the app build script embed/support the Windows SDK manifest without modifying inference.
+
+## Alpha.2 changes
+
+The sys build explicitly forwards GGML_NATIVE/AVX/AVX2/AVX512/FMA/F16C/OPENMP to CMake, defaults OFF, and tracks environment changes. The earlier environment-only portable CPU claim was insufficient. Both model loaders now use Windows UTF-16 paths across toolchains. The patched translation unit is refreshed in the build cache; the GNU adapter's model-sized buffer is removed. FastAvx2 builds require separate compatible hardware qualification.

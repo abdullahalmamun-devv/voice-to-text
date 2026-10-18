@@ -4,11 +4,16 @@ use voicetotext::{audio, engine, worker};
 #[cfg(windows)]
 mod windows;
 fn cli(args: &[String]) -> Result<(), String> {
+    if args.first().map(String::as_str) == Some("--version") {
+        println!("VoiceToText {}", env!("CARGO_PKG_VERSION"));
+        return Ok(());
+    }
+
     if args.first().map(String::as_str) == Some("--worker") {
         return worker::serve();
     }
     if args.first().map(String::as_str) == Some("--transcribe") {
-        if args.len() < 4 {
+        if !(4..=5).contains(&args.len()) {
             return Err("Usage: --transcribe MODEL AUDIO.wav OUTPUT.json [bn|en|auto]".into());
         }
         let samples = audio::read_wav(Path::new(&args[2]))?;
@@ -26,6 +31,9 @@ fn cli(args: &[String]) -> Result<(), String> {
         .map_err(|e| e.to_string())?;
         return Ok(());
     }
+    if !args.is_empty() && args != ["--hidden"] {
+        return Err("Unknown command-line arguments".into());
+    }
     #[cfg(windows)]
     {
         windows::run()
@@ -39,8 +47,10 @@ fn main() {
     let args: Vec<_> = std::env::args().skip(1).collect();
     if let Err(e) = cli(&args) {
         #[cfg(windows)]
-        if args.first().map(String::as_str) != Some("--worker") {
+        if args.is_empty() || args == ["--hidden"] {
             windows::error_box(&e);
+        } else {
+            eprintln!("{e}");
         }
         #[cfg(not(windows))]
         eprintln!("{e}");

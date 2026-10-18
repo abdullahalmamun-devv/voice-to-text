@@ -28,6 +28,9 @@ pub fn resample_mono(samples: &[f32], rate: u32, channels: u16) -> Result<Vec<f3
     if samples.iter().any(|x| !x.is_finite()) {
         return Err("Invalid audio samples".into());
     }
+    if samples.len() as u64 / channels as u64 > rate as u64 * 600 {
+        return Err("Local WAV files are limited to 10 minutes".into());
+    }
     let mono: Vec<f32> = samples
         .chunks_exact(channels as usize)
         .map(|c| c.iter().sum::<f32>() / channels as f32)
@@ -39,14 +42,38 @@ pub fn resample_mono(samples: &[f32], rate: u32, channels: u16) -> Result<Vec<f3
     if mono.is_empty() {
         return Err("Audio file is empty".into());
     }
+    if rate == SAMPLE_RATE as u32 {
+        return Ok(mono);
+    }
     let step = rate as f64 / SAMPLE_RATE as f64;
+    let cutoff = (SAMPLE_RATE as f64 / rate as f64).min(1.) * 0.94;
+    let radius = (16. / cutoff).ceil() as isize;
     Ok((0..output_len as usize)
         .map(|i| {
-            let t = i as f64 * step;
-            let lo = t as usize;
-            let hi = (lo + 1).min(mono.len() - 1);
-            let f = (t - lo as f64) as f32;
-            (mono[lo] * (1. - f) + mono[hi] * f).clamp(-1., 1.)
+            let position = i as f64 * step;
+            let center = position.floor() as isize;
+            let (mut value, mut weights) = (0., 0.);
+            for index in (center - radius)..=(center + radius) {
+                if index < 0 || index >= mono.len() as isize {
+                    continue;
+                }
+                let distance = index as f64 - position;
+                if distance.abs() > radius as f64 {
+                    continue;
+                }
+                let x = std::f64::consts::PI * cutoff * distance;
+                let sinc = if x.abs() < 1e-10 { 1. } else { x.sin() / x };
+                let weight = sinc
+                    * cutoff
+                    * (0.5 + 0.5 * (std::f64::consts::PI * distance / radius as f64).cos());
+                value += mono[index as usize] as f64 * weight;
+                weights += weight;
+            }
+            if weights.abs() > 1e-10 {
+                (value / weights).clamp(-1., 1.) as f32
+            } else {
+                0.
+            }
         })
         .collect())
 }
@@ -57,6 +84,12 @@ pub fn read_wav(path: &Path) -> Result<Vec<f32>, String> {
     let reader =
         hound::WavReader::open(path).map_err(|_| "Only uncompressed PCM/float WAV is supported")?;
     let spec = reader.spec();
+    if !(8000..=192000).contains(&spec.sample_rate) || !(1..=8).contains(&spec.channels) {
+        return Err("Unsupported WAV layout".into());
+    }
+    if reader.duration() as u64 > spec.sample_rate as u64 * 600 {
+        return Err("Local WAV files are limited to 10 minutes".into());
+    }
     let samples: Vec<f32> = match spec.sample_format {
         hound::SampleFormat::Float => reader
             .into_samples::<f32>()
@@ -100,5 +133,21 @@ mod tests {
         assert!(resample_mono(&[f32::NAN], 16000, 1).is_err());
         assert!(resample_mono(&[0.1], 16000, 0).is_err());
         assert!(resample_mono(&[0.1], 16000, 2).is_err());
+    }
+}
+
+#[cfg(test)]
+mod alias_tests {
+    use super::*;
+    #[test]
+    fn out_of_band_tone_does_not_alias_into_speech() {
+        let tone = |hz: f32| {
+            (0..48000)
+                .map(|i| (2. * std::f32::consts::PI * hz * i as f32 / 48000.).sin() * 0.5)
+                .collect::<Vec<_>>()
+        };
+        let rms = |v: Vec<f32>| (v[500..15500].iter().map(|x| x * x).sum::<f32>() / 15000.).sqrt();
+        assert!(rms(resample_mono(&tone(1000.), 48000, 1).unwrap()) > 0.3);
+        assert!(rms(resample_mono(&tone(12000.), 48000, 1).unwrap()) < 0.02);
     }
 }

@@ -16,3 +16,12 @@ An earlier alpha.2 work session was not checkpointed before temporary-workspace 
 ## Planning
 
 Publication and automated build checks are the immediate milestone. Estimate the remaining schedule again after a working alpha.2 checkpoint and initial Windows/model results. The PRD's original Windows planning range is 6–10 active engineering weeks for the full effort, not an elapsed-time promise or a measured amount remaining. Stable completion depends on Windows devices and suitable speech data. Other desktop platforms require separate integration and acceptance work. No 100% ASR or final delivery date is promised.
+
+
+## Published recovery checkpoint
+
+The complete alpha.1 source is public. Priority alpha.2 audio/worker/timestamp/native delivery fixes were reconstructed, locally tested before a subsequent workspace reset, and reconstructed again from the retained recipe. The exact published revision must pass CI before its checks are called green. Earlier local evidence: 34 Rust core tests, five scoring tests, Linux release/Clippy and four synthetic-silence file-worker recovery checks. This is not Bengali ASR or real Windows application acceptance.
+
+Current remaining blockers: full independent UI language/onboarding, browser UI Automation, evaluated VAD, Small/Turbo model selection, rights-cleared Bengali smoke/holdout corpus, real Windows microphone/permissions/insertion/network/resource/accessibility and extended-run QA. macOS/Linux desktop support remains unimplemented.
+
+Provisional planning estimate: several active development days for the next testable Windows alpha; roughly 3–6 active engineering weeks for a Windows V1/V2 stable candidate if suitable hardware, speakers/audio and corpus annotation are available. This is not a deadline. Failed recognition gates or unavailable devices/data extend it. Other desktop platforms need separate feasibility and scheduling. The original full-project PRD estimate was 6–10 active Windows engineering weeks.

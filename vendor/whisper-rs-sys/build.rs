@@ -130,6 +130,8 @@ fn main() {
         });
     }
 
+    println!("cargo:rerun-if-changed=whisper.cpp/src/whisper.cpp");
+std::fs::copy("whisper.cpp/src/whisper.cpp",whisper_root.join("src/whisper.cpp")).expect("Refresh patched loader");
     if env::var("WHISPER_DONT_GENERATE_BINDINGS").is_ok() {
         let _: u64 = std::fs::copy("src/bindings.rs", out.join("bindings.rs"))
             .expect("Failed to copy bindings.rs");
@@ -176,6 +178,11 @@ fn main() {
     }
 
     let mut config = Config::new(&whisper_root);
+for flag in ["GGML_NATIVE","GGML_AVX","GGML_AVX2","GGML_AVX512","GGML_FMA","GGML_F16C","GGML_OPENMP"] {
+println!("cargo:rerun-if-env-changed={flag}");
+config.define(flag,env::var(flag).unwrap_or_else(|_|"OFF".into()));
+}
+
 
     config
         .profile("Release")

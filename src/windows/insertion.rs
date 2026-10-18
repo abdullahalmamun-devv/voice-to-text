@@ -23,6 +23,7 @@ pub struct Undo {
     pub after: String,
     pub start: u32,
     pub count: u32,
+    pub text: String,
 }
 unsafe fn send(hwnd: HWND, message: u32, w: usize, l: isize) -> Result<usize, String> {
     let mut result = 0;
@@ -61,7 +62,7 @@ unsafe fn field_text(hwnd: HWND) -> Result<String, String> {
     if got > n {
         return Err("Target changed".into());
     }
-    Ok(String::from_utf16_lossy(&buf[..got]))
+    String::from_utf16(&buf[..got]).map_err(|_| "Target contains invalid Unicode".into())
 }
 pub unsafe fn snapshot() -> Result<Target, String> {
     let window = GetForegroundWindow();
@@ -139,35 +140,23 @@ pub unsafe fn type_unicode(t: Target, text: &str) -> Result<Undo, String> {
         return Err("Long results require Copy".into());
     }
     let mut expected: Vec<_> = before.encode_utf16().collect();
-    if start as usize > expected.len() {
+    let at = start as usize;
+    if text.contains('\0')
+        || at > expected.len()
+        || (at > 0
+            && at < expected.len()
+            && (0xd800..=0xdbff).contains(&expected[at - 1])
+            && (0xdc00..=0xdfff).contains(&expected[at]))
+    {
         return Err("Caret unavailable".into());
     }
     expected.splice(start as usize..start as usize, units.iter().copied());
-    // SendInput's complete batch is atomic relative to other injected input batches.
-    let mut inputs = Vec::with_capacity(units.len() * 2);
-    for unit in &units {
-        for flags in [KEYEVENTF_UNICODE, KEYEVENTF_UNICODE | KEYEVENTF_KEYUP] {
-            let mut i: INPUT = std::mem::zeroed();
-            i.r#type = INPUT_KEYBOARD;
-            i.Anonymous.ki = KEYBDINPUT {
-                wVk: 0,
-                wScan: *unit,
-                dwFlags: flags,
-                time: 0,
-                dwExtraInfo: 0,
-            };
-            inputs.push(i);
-        }
+    if text.contains(['\n', '\r']) && GetWindowLongW(t.control, GWL_STYLE) as u32 & 4 == 0 {
+        return Err("Single-line fields require Copy for multiline results".into());
     }
     validate(t)?;
-    if SendInput(
-        inputs.len() as u32,
-        inputs.as_ptr(),
-        size_of::<INPUT>() as i32,
-    ) != inputs.len() as u32
-    {
-        return Err("Input delivery incomplete; inspect the field before retrying".into());
-    }
+    let value = wide(text);
+    send(t.control, 0x00c2, 1, value.as_ptr() as isize)?;
     // Verification is deferred by the caller until the target has processed input.
     Ok(Undo {
         target: t,
@@ -175,18 +164,35 @@ pub unsafe fn type_unicode(t: Target, text: &str) -> Result<Undo, String> {
         after: String::from_utf16_lossy(&expected),
         start,
         count: units.len() as u32,
+        text: text.to_string(),
     })
 }
-pub unsafe fn confirm(u: &Undo) -> bool {
-    snapshot().is_ok_and(|t| same_identity(t, u.target) && t.caret == u.start + u.count)
-        && field_text(u.target.control).is_ok_and(|s| s == u.after)
+pub unsafe fn confirm(u: &mut Undo) -> bool {
+    let Ok(target) = snapshot() else {
+        return false;
+    };
+    let Ok(after) = field_text(u.target.control) else {
+        return false;
+    };
+    let Some(count) = voicetotext::delivery::inserted_count(&u.before, &after, u.start, &u.text)
+    else {
+        return false;
+    };
+    if !same_identity(target, u.target) || target.caret != u.start + count {
+        return false;
+    }
+    u.after = after;
+    u.count = count;
+    true
 }
 pub unsafe fn confirm_undo(u: &Undo) -> bool {
     snapshot().is_ok_and(|t| same_identity(t, u.target) && t.caret == u.start)
         && field_text(u.target.control).is_ok_and(|s| s == u.before)
 }
 pub unsafe fn undo(u: &Undo) -> Result<(), String> {
-    if !confirm(u) {
+    if !snapshot().is_ok_and(|t| same_identity(t, u.target) && t.caret == u.start + u.count)
+        || field_text(u.target.control)? != u.after
+    {
         return Err("Target/text changed. Undo is unavailable; edit manually.".into());
     }
     send(
@@ -201,20 +207,8 @@ pub unsafe fn undo(u: &Undo) -> Result<(), String> {
     {
         return Err("Target changed before undo; no delete was sent".into());
     }
-    let mut inputs: [INPUT; 2] = std::mem::zeroed();
-    for (i, flags) in [0, KEYEVENTF_KEYUP].iter().enumerate() {
-        inputs[i].r#type = INPUT_KEYBOARD;
-        inputs[i].Anonymous.ki = KEYBDINPUT {
-            wVk: VK_BACK,
-            wScan: 0,
-            dwFlags: *flags,
-            time: 0,
-            dwExtraInfo: 0,
-        };
-    }
-    if SendInput(2, inputs.as_ptr(), size_of::<INPUT>() as i32) != 2 {
-        return Err("Undo delivery unconfirmed".into());
-    }
+    let empty = wide("");
+    send(u.target.control, 0x00c2, 1, empty.as_ptr() as isize)?;
     Ok(())
 }
 pub unsafe fn copy(owner: HWND, text: &str) -> Result<(), String> {
